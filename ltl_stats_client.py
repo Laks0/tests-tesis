@@ -87,10 +87,11 @@ def _size(d: Optional[dict]) -> Optional[AutomatonSize]:
 class LTLStats:
     """A line-based JSON connection to LTLStatsService (subprocess or socket)."""
 
-    def __init__(self, reader, writer, closer=None) -> None:
+    def __init__(self, reader, writer, closer=None, proc=None) -> None:
         self._reader = reader          # file-like, text mode, readline()
         self._writer = writer          # file-like, text mode, write()/flush()
         self._closer = closer          # optional callable for teardown
+        self._proc = proc              # underlying subprocess, if spawned
 
     # ----------------------------------------------------------------- factories
     @classmethod
@@ -129,7 +130,7 @@ class LTLStats:
                 except subprocess.TimeoutExpired:
                     proc.kill()
 
-        return cls(proc.stdout, proc.stdin, _close)
+        return cls(proc.stdout, proc.stdin, _close, proc=proc)
 
     @classmethod
     def connect(cls, host: str = "localhost", port: int = 5747,
@@ -151,12 +152,33 @@ class LTLStats:
         line = self._reader.readline()
         if not line:
             raise LTLStatsError("LTLStatsService closed the stream (no response)")
-        result = LTLStatsResult(json.loads(line))
+        try:
+            result = LTLStatsResult(json.loads(line))
+        except json.JSONDecodeError as e:
+            raise LTLStatsError(
+                f"Invalid JSON response for {formula!r}: {e}\n"
+                f"Received: {line!r}"
+            )
         if raise_on_error and not result.ok:
             raise LTLStatsError(f"{formula!r}: {result.error}")
         return result
 
     # ---------------------------------------------------------------- lifecycle
+    def kill(self) -> None:
+        """Forcibly terminate the underlying subprocess (if spawned).
+
+        Used to abort a compilation that is taking too long: killing the JVM
+        unblocks any thread stuck in ``stats()`` waiting for a response. Safe to
+        call more than once and on socket-backed instances (a no-op there).
+        """
+        proc = self._proc
+        if proc is not None and proc.poll() is None:
+            proc.kill()
+            try:
+                proc.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                pass
+
     def close(self) -> None:
         if self._closer is not None:
             self._closer()
