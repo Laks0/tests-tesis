@@ -1,0 +1,130 @@
+branch,group,formula,expected,verdict,seconds,compile_ms,check_ms,buchi_states,buchi_transitions,is_property,alphabet,detail
+masterTests,propositional,a,SAT,SAT,0.5816844659984781,19,11,2,3,True,a,a
+masterTests,propositional,a && !a,UNSAT,UNSAT,0.013975146999655408,11,0,1,1,True,a,
+masterTests,propositional,a || !a,SAT,UNSAT,0.022685185000227648,13,8,1,1,True,a,
+masterTests,tautology,a -> a,SAT,UNSAT,0.018091921001541778,9,7,1,1,True,a,
+masterTests,tautology,[]a -> a,SAT,SAT,0.03209359900029085,20,6,1,2,True,a,a
+masterTests,tautology,[](a -> b) -> ([]a -> []b),SAT,SAT,0.033413674998882925,27,2,6,27,False,"a,b",b b b
+masterTests,contradiction,!(a -> a),UNSAT,UNSAT,0.025202906001140946,20,2,1,1,True,a,
+masterTests,future,[]a,SAT,SAT,0.014082109000810306,11,0,2,4,False,a,a a
+masterTests,future,<>a,SAT,SAT,0.029573698999229237,14,13,1,1,True,a,a
+masterTests,future,<>!a,UNSAT,UNSAT,0.04650257599860197,21,19,1,2,True,a,
+masterTests,future,[]<>a,SAT,SAT,0.013428053000097862,11,0,2,6,False,a,a a a a
+masterTests,future,<>[]a,SAT,SAT,0.02832598799977859,24,0,3,6,False,a,a a a
+masterTests,future,X X X a,SAT,SAT,0.03334419000020716,19,13,5,9,True,a,a a a a
+masterTests,future,a U b,SAT,SAT,0.03324561699992046,22,10,2,5,True,"a,b",b
+masterTests,future,a W b,SAT,SAT,0.014861232000839664,12,1,3,9,False,"a,b",b a a
+masterTests,future,[](a -> <>b),SAT,SAT,0.03941354800008412,32,1,2,9,False,"a,b",a b a b
+masterTests,future,[](a -> X b),SAT,SAT,0.02542130899928452,14,5,3,13,False,"a,b",a b a b a
+masterTests,future,[]a && <>b,UNSAT,UNSAT,0.027772891000495292,25,0,1,2,True,"a,b",
+masterTests,future,(a U b) && []!b,UNSAT,UNSAT,0.023396393000439275,21,0,1,2,True,"a,b",
+masterTests,future,[](a -> <>b) && []<>a && []!b,UNSAT,UNSAT,0.023442862000592868,19,0,1,2,True,"a,b",
+masterTests,future,[](a -> X(b U c)) && []<>a && []!c,UNSAT,UNSAT,0.028997053001148743,23,0,1,3,True,"a,b,c",
+masterTests,future,<>(a && X b) && [](b -> X c),SAT,SAT,0.043414658999608946,32,2,6,35,False,"a,b,c",a b c a a
+masterTests,future,[]<>(a -> X(b U c)),SAT,SAT,0.03843898800005263,36,1,5,38,False,"a,b,c",a b c b c
+masterTests,future big,(((a U b) U c) U d),SAT,SAT,0.0625412179997511,33,25,4,19,True,"a,b,c,d",d
+masterTests,future big,[]<>a && []<>b && []<>c,SAT,SAT,0.0213292789994739,17,0,4,18,False,"a,b,c",a a b c a a b c
+masterTests,future big,[]<>a && []<>b && []<>c && []<>d,SAT,SAT,0.027908486999876914,26,0,5,27,False,"a,b,c,d",a a b c d a a b c d
+masterTests,past,<*>a,SAT,ERROR,0.0017913510000653332,,,,,,,syntax error in LTL expression
+masterTests,past,[*]a,SAT,ERROR,0.011816156998975202,,,,,,,syntax error in expression
+masterTests,past,Y a,UNSAT,ERROR,0.002641190001668292,,,,,,,) expected to end LTL expression
+masterTests,past,Y a -> <*>a,SAT,ERROR,0.002285672000652994,,,,,,,) expected to end LTL expression
+masterTests,past,a S b,SAT,ERROR,0.006202651999046793,,,,,,,) expected to end LTL expression
+masterTests,past,<*>a && !a,UNSAT,ERROR,0.0012550150004244642,,,,,,,syntax error in LTL expression
+masterTests,past,[*]!a && <*>a,UNSAT,ERROR,0.005285847999402904,,,,,,,syntax error in expression
+masterTests,past,<*>(a && Y b),UNSAT,ERROR,0.00792358499893453,,,,,,,syntax error in LTL expression
+masterTests,past,Y Y Y Y a,UNSAT,ERROR,0.0019471750001684995,,,,,,,) expected to end LTL expression
+masterTests,past,<*><*><*>a,SAT,ERROR,0.0006686609995085746,,,,,,,syntax error in LTL expression
+masterTests,past,[](b -> <*>a),SAT,ERROR,0.0011969259994657477,,,,,,,syntax error in LTL expression
+masterTests,past,[](b -> Y a),SAT,ERROR,0.001712510000288603,,,,,,,) expected to end LTL expression
+masterTests,past,[](b -> <*>a) && b,UNSAT,ERROR,0.00026674499895307235,,,,,,,syntax error in LTL expression
+masterTests,past,[](b -> (a S c)),SAT,ERROR,0.00018392899983155075,,,,,,,) expected to end LTL expression
+masterTests,past big,[](a -> <*>(b && Y c)),SAT,ERROR,0.00019579599938879255,,,,,,,syntax error in LTL expression
+masterTests,past big,[]<>a && [](a -> <*>b),SAT,ERROR,0.00022369100042851642,,,,,,,syntax error in LTL expression
+masterTests,past big,[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c),SAT,ERROR,0.0001857250008470146,,,,,,,syntax error in LTL expression
+pLTLTests,propositional,a,SAT,SAT,0.635565985001449,6,9,3,5,True,a,a a
+pLTLTests,propositional,a && !a,UNSAT,UNSAT,0.012957694998476654,12,0,1,1,True,a,
+pLTLTests,propositional,a || !a,SAT,SAT,0.012361003000478377,6,5,2,4,True,a,a a
+pLTLTests,tautology,a -> a,SAT,SAT,0.016638966000755318,10,6,2,4,True,a,a a
+pLTLTests,tautology,[]a -> a,SAT,SAT,0.017478423000284238,10,6,2,4,True,a,a a
+pLTLTests,tautology,[](a -> b) -> ([]a -> []b),SAT,SAT,0.021895375999520184,17,0,8,33,False,"a,b",b b b b
+pLTLTests,contradiction,!(a -> a),UNSAT,UNSAT,0.006818423000368057,5,0,1,1,True,a,
+pLTLTests,future,[]a,SAT,SAT,0.011901969000973622,10,1,4,8,False,a,a a a a
+pLTLTests,future,<>a,SAT,SAT,0.01857592200030922,11,4,3,5,True,a,a a
+pLTLTests,future,<>!a,UNSAT,UNSAT,0.020214411000779364,12,8,3,6,True,a,
+pLTLTests,future,[]<>a,SAT,SAT,0.0096018650001497,8,1,3,8,False,a,a a a a a a
+pLTLTests,future,<>[]a,SAT,SAT,0.013471002999722259,11,0,4,8,False,a,a a a a
+pLTLTests,future,X X X a,SAT,SAT,0.019643091000034474,14,5,5,9,True,a,a a a a
+pLTLTests,future,a U b,SAT,SAT,0.01932349300113856,8,10,4,11,True,"a,b",a b
+pLTLTests,future,a W b,SAT,SAT,0.010305507999873953,9,0,6,18,False,"a,b",a b a a
+pLTLTests,future,[](a -> <>b),SAT,SAT,0.016527088000657386,15,0,4,19,False,"a,b",a b a b a b
+pLTLTests,future,[](a -> X b),SAT,SAT,0.01557798799876764,13,0,6,27,False,"a,b",a b a b a b
+pLTLTests,future,[]a && <>b,UNSAT,UNSAT,0.009908441999868955,9,0,1,2,True,"a,b",
+pLTLTests,future,(a U b) && []!b,UNSAT,UNSAT,0.012061455998264137,10,0,1,2,True,"a,b",
+pLTLTests,future,[](a -> <>b) && []<>a && []!b,UNSAT,UNSAT,0.011500808999699075,10,0,1,2,True,"a,b",
+pLTLTests,future,[](a -> X(b U c)) && []<>a && []!c,UNSAT,UNSAT,0.0286786110009416,26,0,1,3,True,"a,b,c",
+pLTLTests,future,<>(a && X b) && [](b -> X c),SAT,SAT,0.08724063299996487,85,0,9,52,False,"a,b,c",a b c a a
+pLTLTests,future,[]<>(a -> X(b U c)),SAT,SAT,0.048341277999497834,46,1,8,64,False,"a,b,c",a b a b a b
+pLTLTests,future big,(((a U b) U c) U d),SAT,SAT,0.3531500009994488,342,10,6,29,True,"a,b,c,d",c d
+pLTLTests,future big,[]<>a && []<>b && []<>c,SAT,SAT,0.05737010499979078,56,0,4,18,False,"a,b,c",a b c a a b c a a b c
+pLTLTests,future big,[]<>a && []<>b && []<>c && []<>d,SAT,SAT,0.5428959359996952,538,1,5,27,False,"a,b,c,d",a b c d a a b c d a a b c d
+pLTLTests,past,<*>a,SAT,SAT,0.020992824000131804,14,5,3,5,True,a,a a
+pLTLTests,past,[*]a,SAT,SAT,0.025818183999945177,18,7,3,5,True,a,a a
+pLTLTests,past,Y a,UNSAT,UNSAT,0.00836638100008713,7,0,1,1,True,a,
+pLTLTests,past,Y a -> <*>a,SAT,SAT,0.01922849299990048,11,8,2,4,True,a,a a
+pLTLTests,past,a S b,SAT,SAT,0.014923811000699061,8,6,3,8,True,"a,b",b a
+pLTLTests,past,<*>a && !a,UNSAT,UNSAT,0.026425994999954128,21,1,1,1,True,a,
+pLTLTests,past,[*]!a && <*>a,UNSAT,UNSAT,0.03068923399951018,30,0,1,1,True,a,
+pLTLTests,past,<*>(a && Y b),UNSAT,UNSAT,0.009325361001174315,9,0,1,2,True,"a,b",
+pLTLTests,past,Y Y Y Y a,UNSAT,UNSAT,0.01855528099986259,17,1,1,1,True,a,
+pLTLTests,past,<*><*><*>a,SAT,SAT,0.022264952000114135,12,9,3,5,True,a,a a
+pLTLTests,past,[](b -> <*>a),SAT,SAT,0.024855195999407442,20,0,6,20,False,"b,a",a a a a
+pLTLTests,past,[](b -> Y a),SAT,SAT,0.019498185998600093,18,0,6,22,False,"b,a",a a a a a a
+pLTLTests,past,[](b -> <*>a) && b,UNSAT,UNSAT,0.01115743599984853,11,0,1,2,True,"b,a",
+pLTLTests,past,[](b -> (a S c)),SAT,SAT,0.026898695999989286,25,0,4,15,False,"b,a,c",a a a a
+pLTLTests,past big,[](a -> <*>(b && Y c)),SAT,SAT,0.01812268799949379,15,0,7,30,False,"a,b,c",c b a a
+pLTLTests,past big,[]<>a && [](a -> <*>b),SAT,SAT,0.01602775500032294,12,0,4,13,False,"a,b",b a a a a a
+pLTLTests,past big,[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c),SAT,SAT,0.35413662000064505,349,2,6,25,False,"a,b,c",c b a b a a b a a b
+pLTLpdTests,propositional,a,SAT,SAT,0.3641171569997823,7,8,3,5,True,a,a a
+pLTLpdTests,propositional,a && !a,UNSAT,UNSAT,0.008001031999810948,6,1,1,1,True,a,
+pLTLpdTests,propositional,a || !a,SAT,SAT,0.01455746999999974,7,6,2,4,True,a,a a
+pLTLpdTests,tautology,a -> a,SAT,SAT,0.021147377001398127,14,6,2,4,True,a,a a
+pLTLpdTests,tautology,[]a -> a,SAT,SAT,0.02184664499873179,11,7,2,4,True,a,a a
+pLTLpdTests,tautology,[](a -> b) -> ([]a -> []b),SAT,SAT,0.0201983389997622,16,1,8,33,False,"a,b",b b b b
+pLTLpdTests,contradiction,!(a -> a),UNSAT,UNSAT,0.010304068999175797,9,0,1,1,True,a,
+pLTLpdTests,future,[]a,SAT,SAT,0.01307566799914639,10,1,4,8,False,a,a a a a
+pLTLpdTests,future,<>a,SAT,SAT,0.014699162000397337,8,6,2,3,True,a,a a
+pLTLpdTests,future,<>!a,UNSAT,UNSAT,0.022574624001208576,9,12,2,4,True,a,
+pLTLpdTests,future,[]<>a,SAT,SAT,0.015129696999792941,13,1,3,8,False,a,a a a a a a
+pLTLpdTests,future,<>[]a,SAT,SAT,0.01494831099989824,12,0,4,8,False,a,a a a a
+pLTLpdTests,future,X X X a,SAT,SAT,0.019046512999921106,10,7,6,11,True,a,a a a a a
+pLTLpdTests,future,a U b,SAT,SAT,0.02172111300023971,11,9,3,8,True,"a,b",b a
+pLTLpdTests,future,a W b,SAT,SAT,0.01436089300113963,13,0,6,20,False,"a,b",b a a a
+pLTLpdTests,future,[](a -> <>b),SAT,SAT,0.01443215200015402,13,1,4,19,False,"a,b",a b a b a b
+pLTLpdTests,future,[](a -> X b),SAT,SAT,0.008363633000044501,7,0,6,27,False,"a,b",a b a b a b
+pLTLpdTests,future,[]a && <>b,UNSAT,UNSAT,0.015045623000332853,13,0,1,2,True,"a,b",
+pLTLpdTests,future,(a U b) && []!b,UNSAT,UNSAT,0.007186202001321362,6,0,1,2,True,"a,b",
+pLTLpdTests,future,[](a -> <>b) && []<>a && []!b,UNSAT,UNSAT,0.007135574998756056,6,0,1,2,True,"a,b",
+pLTLpdTests,future,[](a -> X(b U c)) && []<>a && []!c,UNSAT,UNSAT,0.10294339599931845,102,0,1,3,True,"a,b,c",
+pLTLpdTests,future,<>(a && X b) && [](b -> X c),SAT,SAT,0.01660651800011692,15,0,7,40,False,"a,b,c",a b c a a
+pLTLpdTests,future,[]<>(a -> X(b U c)),SAT,SAT,0.020429959999091807,17,1,7,52,False,"a,b,c",a b a b a b
+pLTLpdTests,future big,(((a U b) U c) U d),SAT,SAT,0.027111164999951143,21,6,5,24,True,"a,b,c,d",d a
+pLTLpdTests,future big,[]<>a && []<>b && []<>c,SAT,SAT,0.0577801930012356,55,1,4,18,False,"a,b,c",a b c a a b c a a b c
+pLTLpdTests,future big,[]<>a && []<>b && []<>c && []<>d,SAT,SAT,0.3346227439997165,332,0,5,27,False,"a,b,c,d",a b c d a a b c d a a b c d
+pLTLpdTests,past,<*>a,SAT,SAT,0.02439157300068473,8,13,3,5,True,a,a a
+pLTLpdTests,past,[*]a,SAT,SAT,0.0176912139995693,8,8,3,5,True,a,a a
+pLTLpdTests,past,Y a,UNSAT,UNSAT,0.01302964900060033,12,0,1,1,True,a,
+pLTLpdTests,past,Y a -> <*>a,SAT,SAT,0.013601128999653156,8,4,2,4,True,a,a a
+pLTLpdTests,past,a S b,SAT,SAT,0.01492067599974689,6,8,3,8,True,"a,b",b a
+pLTLpdTests,past,<*>a && !a,UNSAT,UNSAT,0.009436006999749225,9,0,1,1,True,a,
+pLTLpdTests,past,[*]!a && <*>a,UNSAT,UNSAT,0.010934217998510576,10,0,1,1,True,a,
+pLTLpdTests,past,<*>(a && Y b),UNSAT,UNSAT,0.013273197000671644,12,0,1,2,True,"a,b",
+pLTLpdTests,past,Y Y Y Y a,UNSAT,UNSAT,0.010542436999458005,10,0,1,1,True,a,
+pLTLpdTests,past,<*><*><*>a,SAT,SAT,0.011915687999135116,6,5,3,5,True,a,a a
+pLTLpdTests,past,[](b -> <*>a),SAT,SAT,0.017310978000750765,16,1,6,20,False,"b,a",a a a a
+pLTLpdTests,past,[](b -> Y a),SAT,SAT,0.009890155000903178,9,1,6,23,False,"b,a",a a a a a a
+pLTLpdTests,past,[](b -> <*>a) && b,UNSAT,UNSAT,0.00904701100080274,9,0,1,2,True,"b,a",
+pLTLpdTests,past,[](b -> (a S c)),SAT,SAT,0.020206118999340106,18,0,4,15,False,"b,a,c",a a a a
+pLTLpdTests,past big,[](a -> <*>(b && Y c)),SAT,SAT,0.015700674999607145,13,0,7,30,False,"a,b,c",c b a a
+pLTLpdTests,past big,[]<>a && [](a -> <*>b),SAT,SAT,0.01823398200031079,16,0,4,13,False,"a,b",b a a a a a
+pLTLpdTests,past big,[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c),SAT,SAT,0.23475834200144163,232,1,6,25,False,"a,b,c",c b a b a a b a a b

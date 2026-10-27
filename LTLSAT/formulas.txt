@@ -1,0 +1,60 @@
+# one LTL formula per line; '#' starts a comment
+# '# group: <name>' labels the formulas that follow
+# a trailing '# SAT' / '# UNSAT' records the expected verdict
+
+# group: propositional
+a    # SAT
+a && !a    # UNSAT
+a || !a    # SAT
+
+# group: tautology
+a -> a    # SAT
+[]a -> a    # SAT
+[](a -> b) -> ([]a -> []b)    # SAT
+
+# group: contradiction
+!(a -> a)    # UNSAT
+
+# group: future
+[]a    # SAT
+<>a    # SAT
+<>!a    # UNSAT
+[]<>a    # SAT
+<>[]a    # SAT
+X X X a    # SAT
+a U b    # SAT
+a W b    # SAT
+[](a -> <>b)    # SAT
+[](a -> X b)    # SAT
+[]a && <>b    # UNSAT
+(a U b) && []!b    # UNSAT
+[](a -> <>b) && []<>a && []!b    # UNSAT
+[](a -> X(b U c)) && []<>a && []!c    # UNSAT
+<>(a && X b) && [](b -> X c)    # SAT
+[]<>(a -> X(b U c))    # SAT
+
+# group: future big
+(((a U b) U c) U d)    # SAT
+[]<>a && []<>b && []<>c    # SAT
+[]<>a && []<>b && []<>c && []<>d    # SAT
+
+# group: past
+<*>a    # SAT
+[*]a    # SAT
+Y a    # UNSAT
+Y a -> <*>a    # SAT
+a S b    # SAT
+<*>a && !a    # UNSAT
+[*]!a && <*>a    # UNSAT
+<*>(a && Y b)    # UNSAT
+Y Y Y Y a    # UNSAT
+<*><*><*>a    # SAT
+[](b -> <*>a)    # SAT
+[](b -> Y a)    # SAT
+[](b -> <*>a) && b    # UNSAT
+[](b -> (a S c))    # SAT
+
+# group: past big
+[](a -> <*>(b && Y c))    # SAT
+[]<>a && [](a -> <*>b)    # SAT
+[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c)    # SAT
