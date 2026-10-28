@@ -1,0 +1,44 @@
+group,formula,expected,masterTests:verdict,masterTests:seconds,pLTLTests:verdict,pLTLTests:seconds,pLTLpdTests:verdict,pLTLpdTests:seconds
+propositional,a,SAT,SAT,0.0868,SAT,27.4554,SAT,110.5863
+propositional,a && !a,UNSAT,UNSAT,0.0026,UNSAT,0.0026,UNSAT,0.0025
+propositional,a || !a,SAT,UNSAT,0.0040,SAT,0.0047,SAT,0.0045
+tautology,a -> a,SAT,UNSAT,0.0039,SAT,0.0046,SAT,0.0047
+tautology,[]a -> a,SAT,SAT,0.0049,SAT,0.0056,SAT,0.0059
+tautology,[](a -> b) -> ([]a -> []b),SAT,SAT,0.0045,SAT,0.0049,SAT,0.0048
+contradiction,!(a -> a),UNSAT,UNSAT,0.0023,UNSAT,0.0024,UNSAT,0.0026
+future,[]a,SAT,SAT,0.0023,SAT,0.0027,SAT,0.0032
+future,<>a,SAT,SAT,0.0042,SAT,0.0049,SAT,0.0053
+future,<>!a,UNSAT,UNSAT,0.0044,UNSAT,0.0049,UNSAT,0.0048
+future,[]<>a,SAT,SAT,0.0026,SAT,0.0032,SAT,0.0033
+future,<>[]a,SAT,SAT,0.0029,SAT,0.0035,SAT,0.0031
+future,X X X a,SAT,SAT,0.0048,SAT,0.0056,SAT,0.0052
+future,a U b,SAT,SAT,0.0045,SAT,0.0050,SAT,0.0048
+future,a W b,SAT,SAT,0.0032,SAT,0.0039,SAT,0.0035
+future,[](a -> <>b),SAT,SAT,0.0031,SAT,0.0059,SAT,0.0040
+future,[](a -> X b),SAT,SAT,0.0029,SAT,0.0038,SAT,0.0038
+future,[]a && <>b,UNSAT,UNSAT,0.0027,UNSAT,0.0032,UNSAT,0.0030
+future,(a U b) && []!b,UNSAT,UNSAT,0.0025,UNSAT,0.0029,UNSAT,0.0027
+future,[](a -> <>b) && []<>a && []!b,UNSAT,UNSAT,0.0027,UNSAT,0.0029,UNSAT,0.0028
+future,[](a -> X(b U c)) && []<>a && []!c,UNSAT,UNSAT,0.0036,UNSAT,0.0070,UNSAT,0.0054
+future,<>(a && X b) && [](b -> X c),SAT,SAT,0.0041,SAT,0.0225,SAT,0.0053
+future,[]<>(a -> X(b U c)),SAT,SAT,0.0037,SAT,0.0128,SAT,0.0092
+future big,(((a U b) U c) U d),SAT,SAT,0.0095,SAT,0.0610,SAT,0.0117
+future big,[]<>a && []<>b && []<>c,SAT,SAT,0.0045,SAT,0.0124,SAT,0.0193
+future big,[]<>a && []<>b && []<>c && []<>d,SAT,SAT,0.0086,SAT,0.1251,SAT,0.0790
+past,<*>a,SAT,ERROR,0.0002,SAT,0.0043,SAT,0.0040
+past,[*]a,SAT,ERROR,0.0001,SAT,0.0032,SAT,0.0036
+past,Y a,UNSAT,ERROR,0.0001,UNSAT,0.0018,UNSAT,0.0021
+past,Y a -> <*>a,SAT,ERROR,0.0000,SAT,0.0031,SAT,0.0032
+past,a S b,SAT,ERROR,0.0000,SAT,0.0031,SAT,0.0030
+past,<*>a && !a,UNSAT,ERROR,0.0000,UNSAT,0.0017,UNSAT,0.0018
+past,[*]!a && <*>a,UNSAT,ERROR,0.0001,UNSAT,0.0015,UNSAT,0.0016
+past,<*>(a && Y b),UNSAT,ERROR,0.0000,UNSAT,0.0016,UNSAT,0.0018
+past,Y Y Y Y a,UNSAT,ERROR,0.0000,UNSAT,0.0016,UNSAT,0.0017
+past,<*><*><*>a,SAT,ERROR,0.0000,SAT,0.0030,SAT,0.0035
+past,[](b -> <*>a),SAT,ERROR,0.0000,SAT,0.0026,SAT,0.0029
+past,[](b -> Y a),SAT,ERROR,0.0000,SAT,0.0026,SAT,0.0023
+past,[](b -> <*>a) && b,UNSAT,ERROR,0.0000,UNSAT,0.0024,UNSAT,0.0021
+past,[](b -> (a S c)),SAT,ERROR,0.0000,SAT,0.0030,SAT,0.0025
+past big,[](a -> <*>(b && Y c)),SAT,ERROR,0.0000,SAT,0.0038,SAT,0.0025
+past big,[]<>a && [](a -> <*>b),SAT,ERROR,0.0001,SAT,0.0040,SAT,0.0032
+past big,[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c),SAT,ERROR,0.0000,SAT,0.0771,SAT,0.0397

@@ -1,44 +1,1139 @@
 group,formula,expected,masterTests:verdict,masterTests:seconds,pLTLTests:verdict,pLTLTests:seconds,pLTLpdTests:verdict,pLTLpdTests:seconds
-propositional,a,SAT,SAT,0.5817,SAT,0.6356,SAT,0.3641
-propositional,a && !a,UNSAT,UNSAT,0.0140,UNSAT,0.0130,UNSAT,0.0080
-propositional,a || !a,SAT,UNSAT,0.0227,SAT,0.0124,SAT,0.0146
-tautology,a -> a,SAT,UNSAT,0.0181,SAT,0.0166,SAT,0.0211
-tautology,[]a -> a,SAT,SAT,0.0321,SAT,0.0175,SAT,0.0218
-tautology,[](a -> b) -> ([]a -> []b),SAT,SAT,0.0334,SAT,0.0219,SAT,0.0202
-contradiction,!(a -> a),UNSAT,UNSAT,0.0252,UNSAT,0.0068,UNSAT,0.0103
-future,[]a,SAT,SAT,0.0141,SAT,0.0119,SAT,0.0131
-future,<>a,SAT,SAT,0.0296,SAT,0.0186,SAT,0.0147
-future,<>!a,UNSAT,UNSAT,0.0465,UNSAT,0.0202,UNSAT,0.0226
-future,[]<>a,SAT,SAT,0.0134,SAT,0.0096,SAT,0.0151
-future,<>[]a,SAT,SAT,0.0283,SAT,0.0135,SAT,0.0149
-future,X X X a,SAT,SAT,0.0333,SAT,0.0196,SAT,0.0190
-future,a U b,SAT,SAT,0.0332,SAT,0.0193,SAT,0.0217
-future,a W b,SAT,SAT,0.0149,SAT,0.0103,SAT,0.0144
-future,[](a -> <>b),SAT,SAT,0.0394,SAT,0.0165,SAT,0.0144
-future,[](a -> X b),SAT,SAT,0.0254,SAT,0.0156,SAT,0.0084
-future,[]a && <>b,UNSAT,UNSAT,0.0278,UNSAT,0.0099,UNSAT,0.0150
-future,(a U b) && []!b,UNSAT,UNSAT,0.0234,UNSAT,0.0121,UNSAT,0.0072
-future,[](a -> <>b) && []<>a && []!b,UNSAT,UNSAT,0.0234,UNSAT,0.0115,UNSAT,0.0071
-future,[](a -> X(b U c)) && []<>a && []!c,UNSAT,UNSAT,0.0290,UNSAT,0.0287,UNSAT,0.1029
-future,<>(a && X b) && [](b -> X c),SAT,SAT,0.0434,SAT,0.0872,SAT,0.0166
-future,[]<>(a -> X(b U c)),SAT,SAT,0.0384,SAT,0.0483,SAT,0.0204
-future big,(((a U b) U c) U d),SAT,SAT,0.0625,SAT,0.3532,SAT,0.0271
-future big,[]<>a && []<>b && []<>c,SAT,SAT,0.0213,SAT,0.0574,SAT,0.0578
-future big,[]<>a && []<>b && []<>c && []<>d,SAT,SAT,0.0279,SAT,0.5429,SAT,0.3346
-past,<*>a,SAT,ERROR,0.0018,SAT,0.0210,SAT,0.0244
-past,[*]a,SAT,ERROR,0.0118,SAT,0.0258,SAT,0.0177
-past,Y a,UNSAT,ERROR,0.0026,UNSAT,0.0084,UNSAT,0.0130
-past,Y a -> <*>a,SAT,ERROR,0.0023,SAT,0.0192,SAT,0.0136
-past,a S b,SAT,ERROR,0.0062,SAT,0.0149,SAT,0.0149
-past,<*>a && !a,UNSAT,ERROR,0.0013,UNSAT,0.0264,UNSAT,0.0094
-past,[*]!a && <*>a,UNSAT,ERROR,0.0053,UNSAT,0.0307,UNSAT,0.0109
-past,<*>(a && Y b),UNSAT,ERROR,0.0079,UNSAT,0.0093,UNSAT,0.0133
-past,Y Y Y Y a,UNSAT,ERROR,0.0019,UNSAT,0.0186,UNSAT,0.0105
-past,<*><*><*>a,SAT,ERROR,0.0007,SAT,0.0223,SAT,0.0119
-past,[](b -> <*>a),SAT,ERROR,0.0012,SAT,0.0249,SAT,0.0173
-past,[](b -> Y a),SAT,ERROR,0.0017,SAT,0.0195,SAT,0.0099
-past,[](b -> <*>a) && b,UNSAT,ERROR,0.0003,UNSAT,0.0112,UNSAT,0.0090
-past,[](b -> (a S c)),SAT,ERROR,0.0002,SAT,0.0269,SAT,0.0202
-past big,[](a -> <*>(b && Y c)),SAT,ERROR,0.0002,SAT,0.0181,SAT,0.0157
-past big,[]<>a && [](a -> <*>b),SAT,ERROR,0.0002,SAT,0.0160,SAT,0.0182
-past big,[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c),SAT,ERROR,0.0002,SAT,0.3541,SAT,0.2348
+propositional,a,SAT,SAT,0.0902,SAT,73.7460,SAT,42.7117
+propositional,a && !a,UNSAT,UNSAT,0.0022,UNSAT,0.0027,UNSAT,0.0028
+propositional,a || !a,SAT,UNSAT,0.0041,SAT,0.0047,SAT,0.0044
+tautology,a -> a,SAT,UNSAT,0.0046,SAT,0.0045,SAT,0.0043
+tautology,[]a -> a,SAT,SAT,0.0050,SAT,0.0057,SAT,0.0054
+tautology,[](a -> b) -> ([]a -> []b),SAT,SAT,0.0042,SAT,0.0051,SAT,0.0048
+contradiction,!(a -> a),UNSAT,UNSAT,0.0024,UNSAT,0.0026,UNSAT,0.0024
+future,[]a,SAT,SAT,0.0024,SAT,0.0030,SAT,0.0027
+future,<>a,SAT,SAT,0.0043,SAT,0.0050,SAT,0.0046
+future,<>!a,UNSAT,UNSAT,0.0043,UNSAT,0.0054,UNSAT,0.0047
+future,[]<>a,SAT,SAT,0.0027,SAT,0.0033,SAT,0.0032
+future,<>[]a,SAT,SAT,0.0027,SAT,0.0032,SAT,0.0031
+future,X X X a,SAT,SAT,0.0047,SAT,0.0055,SAT,0.0050
+future,a U b,SAT,SAT,0.0047,SAT,0.0052,SAT,0.0048
+future,a W b,SAT,SAT,0.0028,SAT,0.0036,SAT,0.0034
+future,[](a -> <>b),SAT,SAT,0.0028,SAT,0.0053,SAT,0.0039
+future,[](a -> X b),SAT,SAT,0.0029,SAT,0.0038,SAT,0.0035
+future,[]a && <>b,UNSAT,UNSAT,0.0030,UNSAT,0.0034,UNSAT,0.0035
+future,(a U b) && []!b,UNSAT,UNSAT,0.0026,UNSAT,0.0027,UNSAT,0.0034
+future,[](a -> <>b) && []<>a && []!b,UNSAT,UNSAT,0.0027,UNSAT,0.0033,UNSAT,0.0030
+future,[](a -> X(b U c)) && []<>a && []!c,UNSAT,UNSAT,0.0037,UNSAT,0.0078,UNSAT,0.0052
+future,<>(a && X b) && [](b -> X c),SAT,SAT,0.0039,SAT,0.0256,SAT,0.0056
+future,[]<>(a -> X(b U c)),SAT,SAT,0.0044,SAT,0.0126,SAT,0.0082
+future big,(((a U b) U c) U d),SAT,SAT,0.0090,SAT,0.0613,SAT,0.0115
+future big,[]<>a && []<>b && []<>c,SAT,SAT,0.0039,SAT,0.0137,SAT,0.0179
+future big,[]<>a && []<>b && []<>c && []<>d,SAT,SAT,0.0063,SAT,0.1335,SAT,0.0754
+past,<*>a,SAT,ERROR,0.0002,SAT,0.0051,SAT,0.0036
+past,[*]a,SAT,ERROR,0.0001,SAT,0.0035,SAT,0.0034
+past,Y a,UNSAT,ERROR,0.0001,UNSAT,0.0018,UNSAT,0.0019
+past,Y a -> <*>a,SAT,ERROR,0.0001,SAT,0.0030,SAT,0.0034
+past,a S b,SAT,ERROR,0.0001,SAT,0.0030,SAT,0.0035
+past,<*>a && !a,UNSAT,ERROR,0.0001,UNSAT,0.0017,UNSAT,0.0021
+past,[*]!a && <*>a,UNSAT,ERROR,0.0001,UNSAT,0.0017,UNSAT,0.0016
+past,<*>(a && Y b),UNSAT,ERROR,0.0001,UNSAT,0.0017,UNSAT,0.0017
+past,Y Y Y Y a,UNSAT,ERROR,0.0001,UNSAT,0.0018,UNSAT,0.0017
+past,<*><*><*>a,SAT,ERROR,0.0001,SAT,0.0030,SAT,0.0030
+past,[](b -> <*>a),SAT,ERROR,0.0001,SAT,0.0031,SAT,0.0028
+past,[](b -> Y a),SAT,ERROR,0.0001,SAT,0.0026,SAT,0.0025
+past,[](b -> <*>a) && b,UNSAT,ERROR,0.0001,UNSAT,0.0024,UNSAT,0.0023
+past,[](b -> (a S c)),SAT,ERROR,0.0000,SAT,0.0029,SAT,0.0028
+past big,[](a -> <*>(b && Y c)),SAT,ERROR,0.0000,SAT,0.0033,SAT,0.0032
+past big,[]<>a && [](a -> <*>b),SAT,ERROR,0.0000,SAT,0.0032,SAT,0.0030
+past big,[]<>a && []<>b && [](a -> <*>b) && [](b -> <*>c),SAT,ERROR,0.0000,SAT,0.0719,SAT,0.0359
+random future,((X a) U (!a)),,UNSAT,0.0032,UNSAT,0.0032,UNSAT,0.0105
+random future,((X a) W (!a)),,SAT,0.0017,SAT,0.0026,SAT,0.0063
+random future,(a W (!(!a))),,SAT,0.0030,SAT,0.0034,SAT,0.0030
+random future,(!(X (a W a))),,UNSAT,0.0026,UNSAT,0.0035,UNSAT,0.0019
+random future,(X (a U (X a))),,SAT,0.0049,SAT,0.0035,SAT,0.0035
+random future,((X a) W (X a)),,SAT,0.0017,SAT,0.0042,SAT,0.0056
+random future,((X a) U (X a)),,SAT,0.0023,SAT,0.0035,SAT,0.0056
+random future,((!a) W (X a)),,SAT,0.0021,SAT,0.0026,SAT,0.0064
+random future,(a U (a U a)),,SAT,0.0051,SAT,0.0033,SAT,0.0037
+random future,(!(a U (X a))),,UNSAT,0.0022,UNSAT,0.0035,UNSAT,0.0064
+random future,((a W a) U a),,SAT,0.0027,SAT,0.0035,SAT,0.0033
+random future,((a W a) W a),,SAT,0.0029,SAT,0.0039,SAT,0.0044
+random future,(a U (a W a)),,SAT,0.0032,SAT,0.0043,SAT,0.0108
+random future,(X ((!a) U a)),,SAT,0.0049,SAT,0.0034,SAT,0.0032
+random future,(X (X (X (!a)))),,UNSAT,0.0037,UNSAT,0.0037,UNSAT,0.0110
+random future,((a U a) W a),,SAT,0.0027,SAT,0.0042,SAT,0.0038
+random future,(a W (a W a)),,SAT,0.0027,SAT,0.0042,SAT,0.0034
+random future,(a W (!(X a))),,SAT,0.0033,SAT,0.0023,SAT,0.0022
+random future,(a W (X (!a))),,SAT,0.0034,SAT,0.0026,SAT,0.0023
+random future,(a W (a U a)),,SAT,0.0017,SAT,0.0042,SAT,0.0121
+random future,(X (a W (!a))),,SAT,0.0031,SAT,0.0037,SAT,0.0109
+random future,(X (a W (X a))),,SAT,0.0030,SAT,0.0021,SAT,0.0021
+random future,(a U (!(!a))),,SAT,0.0026,SAT,0.0030,SAT,0.0034
+random future,(X ((X a) U a)),,SAT,0.0053,SAT,0.0034,SAT,0.0018
+random future,((!a) U (X a)),,SAT,0.0052,SAT,0.0033,SAT,0.0033
+random future,(!((!a) W a)),,UNSAT,0.0025,UNSAT,0.0020,UNSAT,0.0017
+random future,((!(X a)) W a),,SAT,0.0027,SAT,0.0025,SAT,0.0021
+random future,(X (a U (!a))),,UNSAT,0.0043,UNSAT,0.0032,UNSAT,0.0109
+random future,(X (X (a W a))),,SAT,0.0022,SAT,0.0036,SAT,0.0057
+random future,((!a) U (!a)),,UNSAT,0.0021,UNSAT,0.0032,UNSAT,0.0107
+random future,(!(a W (X a))),,UNSAT,0.0051,UNSAT,0.0033,UNSAT,0.0042
+random future,(!(X (!(!a)))),,UNSAT,0.0054,UNSAT,0.0031,UNSAT,0.0034
+random future,((!a) W (!a)),,UNSAT,0.0021,UNSAT,0.0039,UNSAT,0.0107
+random future,(X (!(!(X a)))),,SAT,0.0049,SAT,0.0037,SAT,0.0031
+random future,(!(!(a U a))),,SAT,0.0026,SAT,0.0033,SAT,0.0030
+random future,(X ((X a) W a)),,SAT,0.0022,SAT,0.0056,SAT,0.0057
+random future,((!(!a)) W a),,SAT,0.0026,SAT,0.0038,SAT,0.0031
+random future,(!(!(X (!a)))),,UNSAT,0.0047,UNSAT,0.0033,UNSAT,0.0030
+random future,((a U a) U a),,SAT,0.0036,SAT,0.0035,SAT,0.0039
+random future,((X (X a)) U a),,SAT,0.0049,SAT,0.0040,SAT,0.0020
+random future,(a U (X (!a))),,UNSAT,0.0050,UNSAT,0.0037,UNSAT,0.0032
+random future,(!((!a) U a)),,UNSAT,0.0027,UNSAT,0.0020,UNSAT,0.0018
+random future,(X (!(!(!a)))),,UNSAT,0.0050,UNSAT,0.0034,UNSAT,0.0034
+random future,(((X a) U a) U (!(!(a U a)))),,SAT,0.0051,SAT,0.0079,SAT,0.0042
+random future,((a U a) W (X (!(a U (X a))))),,SAT,0.0031,SAT,0.0077,SAT,0.0036
+random future,((!((a W a) U a)) U (!(!a))),,SAT,0.0050,SAT,0.0041,SAT,0.0038
+random future,(a U (!((a U (!a)) U (X a)))),,UNSAT,0.0028,UNSAT,0.0023,UNSAT,0.0021
+random future,(!((X (a W a)) U ((!a) W a))),,UNSAT,0.0026,UNSAT,0.0018,UNSAT,0.0021
+random future,((a U (a W (X (X (!a))))) W a),,SAT,0.0040,SAT,0.2338,SAT,0.0100
+random future,((X a) U ((!a) W (X (X (!a))))),,UNSAT,0.0033,UNSAT,0.0054,UNSAT,0.0029
+random future,((!a) W (X ((!a) W (a W a)))),,UNSAT,0.0053,SAT,0.0145,SAT,0.0033
+random future,(((a W (!a)) W a) U (a U a)),,SAT,0.0051,SAT,0.0040,SAT,0.0040
+random future,(a U ((a W (X (X (X a)))) W a)),,SAT,0.0058,SAT,6.2736,SAT,0.0112
+random future,(((a W a) U (X (!a))) U (X a)),,SAT,0.0057,SAT,0.0055,SAT,0.0053
+random future,((X (!a)) W (X ((X a) W (!a)))),,SAT,0.0031,SAT,0.0049,SAT,0.0034
+random future,(X (!(X ((X a) W (!(!(!a))))))),,UNSAT,0.0054,UNSAT,0.0033,UNSAT,0.0040
+random future,((a W ((!a) W (a U a))) U a),,SAT,0.0041,SAT,16.8663,SAT,0.0276
+random future,(!((X ((!a) U (!a))) U (!a))),,SAT,0.0027,SAT,0.0033,SAT,0.0024
+random future,(a W ((X a) U (a W (a W a)))),,SAT,0.0029,SAT,6.6067,SAT,0.0175
+random future,((a W (a W a)) U ((!a) U a)),,SAT,0.0052,SAT,0.0663,SAT,0.0047
+random future,(!(X (X (((!a) U a) W (X a))))),,UNSAT,0.0029,UNSAT,0.0021,UNSAT,0.0021
+random future,((!(a U a)) W ((X a) U (!a))),,UNSAT,0.0031,UNSAT,0.0042,UNSAT,0.0043
+random future,(!(!(!((X (a W (X a))) U a)))),,UNSAT,0.0029,UNSAT,0.0024,UNSAT,0.0022
+random future,((a U a) U ((X (a U a)) W a)),,SAT,0.0052,SAT,0.0123,SAT,0.0027
+random future,(!(!(X (a W ((X a) U (X a)))))),,SAT,0.0029,SAT,0.0025,SAT,0.0022
+random future,((!a) U ((X a) U (!(a W a)))),,UNSAT,0.0052,UNSAT,0.0035,UNSAT,0.0034
+random future,(((X a) U (X a)) W ((X a) W a)),,SAT,0.0030,SAT,0.1540,SAT,0.0064
+random future,(!((a W a) U (a W (X (!a))))),,UNSAT,0.0050,UNSAT,0.0031,UNSAT,0.0038
+random future,(a U (((!a) U (a U a)) U a)),,SAT,0.0050,SAT,0.0086,SAT,0.0030
+random future,((X a) U ((a W (!(!a))) U a)),,SAT,0.0050,SAT,0.0060,SAT,0.0037
+random future,((!(a W (!a))) U (a W (X a))),,SAT,0.0029,SAT,0.0021,SAT,0.0022
+random future,((X (!a)) U (a W (X (a U a)))),,SAT,0.0031,SAT,0.0028,SAT,0.0025
+random future,(X (X (a U (!((X (!a)) U a))))),,UNSAT,0.0029,UNSAT,0.0024,UNSAT,0.0022
+random future,((a U (a W a)) U (!(!(!a)))),,UNSAT,0.0053,UNSAT,0.0030,UNSAT,0.0033
+random future,((!a) U (a W (!((X a) W a)))),,SAT,0.0030,SAT,0.0195,SAT,0.0028
+random future,((X (((!a) U (X a)) U a)) U a),,SAT,0.0053,SAT,0.0044,SAT,0.0024
+random future,(X (X (X (a W (a U (a W a)))))),,SAT,0.0030,SAT,0.1325,SAT,0.0032
+random future,(((X a) W (!a)) U ((!a) U a)),,SAT,0.0030,SAT,0.0063,SAT,0.0029
+random future,(!((X a) W ((X (a U a)) U a))),,UNSAT,0.0053,UNSAT,0.0080,UNSAT,0.0027
+random future,(X ((!(!a)) W (a U (a W a)))),,SAT,0.0029,SAT,0.0116,SAT,0.0029
+random future,((X ((X a) W (X (X (X a))))) W a),,SAT,0.0046,SAT,0.1216,SAT,0.0076
+random future,(!(a W (X (!(X ((X a) U a)))))),,UNSAT,0.0065,UNSAT,0.0044,UNSAT,0.0027
+random future,((a U (X (X a))) U (!(a U a))),,UNSAT,0.0056,UNSAT,0.0056,UNSAT,0.0045
+random future,((X (a U a)) U (X (!(a W a)))),,UNSAT,0.0053,UNSAT,0.0033,UNSAT,0.0037
+random future,((X a) U (!(a U (!(a W a))))),,SAT,0.0028,SAT,0.0022,SAT,0.0023
+random future,(X (!(X ((a W (!a)) W (X a))))),,UNSAT,0.0027,UNSAT,0.0017,UNSAT,0.0017
+random future,(((!a) W (a W a)) W (a W a)),,UNSAT,0.0053,SAT,0.0231,SAT,0.0036
+random future,(((!a) U a) W ((a U a) W a)),,SAT,0.0034,SAT,0.0978,SAT,0.0063
+random future,((X (a W a)) U (a U (!(!a)))),,SAT,0.0059,SAT,0.0043,SAT,0.0038
+random future,((!a) W ((a W (X a)) U (!a))),,UNSAT,0.0036,UNSAT,0.2489,UNSAT,0.0049
+random future,(!((!((X a) U a)) W (!(X a)))),,SAT,0.0054,SAT,0.0036,SAT,0.0023
+random future,(a W ((a W a) U ((X a) W a))),,SAT,0.0032,SAT,3.4204,SAT,0.0153
+random future,(a W (!((!(X a)) W (a U a)))),,SAT,0.0031,SAT,0.0046,SAT,0.0046
+random future,((!a) W ((a U (!(!a))) U a)),,UNSAT,0.0056,SAT,0.0086,SAT,0.0040
+random future,((!(X a)) W (X (!(X (a W a))))),,UNSAT,0.0032,UNSAT,0.0028,UNSAT,0.0027
+random future,((!(((!(!a)) U a) W a)) W a),,UNSAT,0.0052,SAT,0.0039,SAT,0.0031
+random future,(((X (X a)) U (X a)) U (X (!a))),,UNSAT,0.0057,UNSAT,0.0030,UNSAT,0.0035
+random future,(X (X (((X a) W a) U (a U a)))),,SAT,0.0056,SAT,0.0859,SAT,0.0046
+random future,(!((X (!((a W a) U a))) W a)),,UNSAT,0.0029,UNSAT,0.0032,UNSAT,0.0022
+random future,((a W (X a)) U ((a W a) W a)),,SAT,0.0056,SAT,0.7772,SAT,0.0073
+random future,((X ((X (!a)) W a)) U (!(!a))),,SAT,0.0055,SAT,0.0036,SAT,0.0027
+random future,((!(X (X (!(!a))))) U (!(X a))),,UNSAT,0.0054,UNSAT,0.0028,UNSAT,0.0021
+random future,(((!a) W ((X a) W (X a))) U a),,SAT,0.0031,SAT,0.0057,SAT,0.0026
+random future,(((!(X a)) W (X a)) U (!(X a))),,UNSAT,0.0055,UNSAT,0.0030,UNSAT,0.0033
+random future,((a U (!((X a) U (!a)))) W a),,SAT,0.0031,SAT,0.0099,SAT,0.0044
+random future,(X (a U ((X (a U a)) W (X a)))),,SAT,0.0030,SAT,0.0094,SAT,0.0022
+random future,((a U (a U a)) U ((!a) W a)),,UNSAT,0.0050,SAT,0.0091,SAT,0.0038
+random future,((a W a) U (X ((X a) W (X a)))),,SAT,0.0032,SAT,0.0033,SAT,0.0022
+random future,((X (X a)) W (((X a) W a) W a)),,SAT,0.0037,SAT,8.2982,SAT,0.0196
+random future,((a W (!a)) W (a U (a W a))),,UNSAT,0.0052,SAT,0.0027,SAT,0.0035
+random future,((a W (!a)) U (a W (!(!a)))),,SAT,0.0052,SAT,0.0028,SAT,0.0035
+random future,((X ((!(!a)) W (!(X a)))) U a),,SAT,0.0032,SAT,0.0025,SAT,0.0025
+random future,(X (((X a) U ((!a) W a)) U a)),,SAT,0.0056,SAT,0.0032,SAT,0.0023
+random future,(((X a) W (!a)) U (!(a U a))),,UNSAT,0.0054,UNSAT,0.0155,UNSAT,0.0043
+random future,((!(!a)) U ((X (a U a)) U a)),,SAT,0.0056,SAT,0.0040,SAT,0.0023
+random future,((a U (a U (!a))) U (!(!a))),,SAT,0.0032,SAT,0.0036,SAT,0.0039
+random future,(((!a) W ((!a) W (!a))) U a),,SAT,0.0052,SAT,0.0040,SAT,0.0040
+random future,((!a) U (((X a) U a) U (X a))),,SAT,0.0058,SAT,0.0049,SAT,0.0023
+random future,(((X (!a)) U a) U (a W (X a))),,SAT,0.0030,SAT,0.0036,SAT,0.0024
+random future,((a W a) W ((X a) W (!(!a)))),,SAT,0.0029,SAT,0.0755,SAT,0.0046
+random future,((a W (!(X (!(!(!a)))))) U a),,SAT,0.0058,SAT,0.0055,SAT,0.0026
+random future,((a U ((!(X a)) U a)) U (!a)),,UNSAT,0.0053,UNSAT,0.0033,UNSAT,0.0036
+random future,(X (a W (((X a) W a) U (!a)))),,SAT,0.0031,SAT,0.2485,SAT,0.0042
+random future,((!a) W ((X (!(X a))) U (X a))),,SAT,0.0031,SAT,0.0033,SAT,0.0023
+random future,(((!a) W (X a)) U ((X a) W a)),,SAT,0.0033,SAT,0.0324,SAT,0.0029
+random future,((X a) W (!(!(!((!a) W a))))),,SAT,0.0030,SAT,0.0017,SAT,0.0018
+random future,(!(!((a W (!a)) W (!(X a))))),,UNSAT,0.0054,SAT,0.0024,SAT,0.0032
+random future,(X ((a W (X a)) W (!(X (!a))))),,SAT,0.0031,SAT,0.0078,SAT,0.0025
+random future,((X a) U (X (!(X ((!a) U a))))),,UNSAT,0.0029,UNSAT,0.0016,UNSAT,0.0018
+random future,((X ((X a) W a)) W (a U (!a))),,SAT,0.0031,SAT,0.0270,SAT,0.0035
+random future,(X (X ((!(a W a)) W (a W a)))),,SAT,0.0053,SAT,0.0027,SAT,0.0034
+random future,(X (!((a W (X a)) W (X (X a))))),,UNSAT,0.0059,UNSAT,0.0037,UNSAT,0.0036
+random future,((X (!(X a))) U ((X a) U (!a))),,UNSAT,0.0053,UNSAT,0.0027,UNSAT,0.0035
+random future,((a W a) U (a U (X (a W a)))),,SAT,0.0032,SAT,0.0048,SAT,0.0023
+random future,((X (X a)) W (X ((a W a) W a))),,SAT,0.0032,SAT,0.1301,SAT,0.0039
+random future,(!((X ((a W a) W (X a))) U a)),,UNSAT,0.0029,UNSAT,0.0063,UNSAT,0.0022
+random future,((a U (a U a)) W ((X a) U a)),,SAT,0.0031,SAT,0.1249,SAT,0.0051
+random future,((a U (X a)) U ((!(!a)) W a)),,SAT,0.0054,SAT,0.0100,SAT,0.0039
+random future,(X ((!((a U a) U a)) W (!a))),,UNSAT,0.0029,UNSAT,0.0075,UNSAT,0.0026
+random future,(X (a U (!((a U (X a)) W a)))),,UNSAT,0.0031,UNSAT,0.0030,UNSAT,0.0021
+random future,(((a U a) U (a U a)) U (!a)),,UNSAT,0.0053,UNSAT,0.0028,UNSAT,0.0035
+random future,(((!(a U (!a))) W a) W (X a)),,SAT,0.0032,SAT,0.0137,SAT,0.0031
+random future,(!(X (!((((!(X a)) W a) W (X (X a))) W (!a))))),,SAT,0.0055,SAT,1.2947,SAT,0.0087
+random future,((!(a U (((!a) U a) U (X a)))) U (X (a W a))),,SAT,0.0034,SAT,0.0133,SAT,0.0027
+random future,(!(a W (((a W a) U (!((X (X a)) W a))) U a))),,UNSAT,0.0041,UNSAT,0.2956,UNSAT,0.0066
+random future,(a W ((X (((!a) U ((X a) U a)) W (X a))) U a)),,SAT,0.0038,SAT,4.0324,SAT,0.0115
+random future,(a U (a W (((a U (X a)) U (!a)) U (a W a)))),,SAT,0.0062,TIMEOUT,,SAT,0.0139
+random future,((a W (a U ((!a) W (X a)))) W ((X a) U (X a))),,SAT,0.0061,TIMEOUT,,SAT,0.0535
+random future,((((!a) W (!a)) W (X a)) W ((a W a) W (X a))),,SAT,0.0040,SAT,43.0645,SAT,0.0134
+random future,((a W (!(X (a W ((X (!a)) W a))))) U (a W a)),,SAT,0.0071,SAT,0.1823,SAT,0.0058
+random future,((((!(!a)) W a) U a) W (a W ((X a) U (!a)))),,UNSAT,0.0059,SAT,2.1958,SAT,0.0102
+random future,(((a U a) U (!a)) W ((a U (!a)) U (a U a))),,UNSAT,0.0061,SAT,0.2427,SAT,0.0071
+random future,((((X (!a)) W a) W (!a)) W (((X a) U a) W a)),,SAT,0.0041,SAT,8.9223,SAT,0.0237
+random future,((a U a) W ((!a) W (a U (!((a W a) W a))))),,UNSAT,0.0067,SAT,40.6430,SAT,0.0381
+random future,(((a U a) W a) U ((a U a) W (!(a W (X a))))),,SAT,0.0044,SAT,0.6662,SAT,0.0048
+random future,(X (!((X ((a U (!(!a))) U (X (!a)))) W (X a)))),,UNSAT,0.0038,UNSAT,0.0048,UNSAT,0.0025
+random future,((X a) W ((((X a) U a) W a) U (X (!(X (X a)))))),,SAT,0.0063,TIMEOUT,,SAT,0.0597
+random future,(X (!((((a U (X a)) W (!(X a))) U a) W (X a)))),,UNSAT,0.0032,UNSAT,31.1753,UNSAT,0.0028
+random future,(((!(X (!(!a)))) W (a W a)) U ((X (!a)) U a)),,SAT,0.0058,SAT,0.1314,SAT,0.0052
+random future,((((a U a) W a) U (a W a)) U (X (!(!(X a))))),,SAT,0.0061,TIMEOUT,,SAT,0.0188
+random future,(a W ((((X a) U (a W a)) W ((X a) W a)) W a)),,SAT,0.0062,TIMEOUT,,ERROR,16.7064
+random future,(((((a U a) U a) W (X a)) W (a U a)) U (X a)),,SAT,0.0049,TIMEOUT,,ERROR,0.0229
+random future,((X ((!(!a)) W ((!(a W a)) W (a U a)))) U a),,SAT,0.0063,SAT,57.2655,SAT,0.0109
+random future,((!(X (X (X (!(!(X (!(a U a))))))))) W (a W a)),,SAT,0.0041,SAT,1.9381,SAT,0.0175
+random future,(((a U (!(!a))) W a) W ((X a) W ((!a) U a))),,SAT,0.0033,SAT,15.5938,SAT,0.0288
+random future,(((!a) U (a W (a U (X a)))) U (a W (a W a))),,SAT,0.0036,SAT,68.6321,SAT,0.0198
+random future,((!(!(((a W a) W (a W a)) U a))) U (X (!a))),,UNSAT,0.0060,UNSAT,0.0805,UNSAT,0.0143
+random future,(X ((X ((!a) W ((a U a) W (!a)))) U (!(X a)))),,UNSAT,0.0036,UNSAT,0.2145,UNSAT,0.0081
+random future,(((X a) W (!(X (a U a)))) U ((!a) W (a U a))),,SAT,0.0063,SAT,0.0584,SAT,0.0082
+random future,((X a) U (X (X (!(X (((X (!a)) U a) W (!a))))))),,UNSAT,0.0031,UNSAT,0.0032,UNSAT,0.0066
+random future,(!((X ((!(a U (a U (X a)))) W (!a))) U (X a))),,UNSAT,0.0031,UNSAT,0.0019,UNSAT,0.0063
+random future,((a W ((!a) U a)) W (X (a W ((a U a) U a)))),,SAT,0.0043,TIMEOUT,,SAT,0.0414
+random future,((((X (!(!(a W (X a))))) U (a U a)) U a) W a),,SAT,0.0034,SAT,61.0383,SAT,0.0293
+random future,(((X a) U ((((a U a) U a) W (X a)) U a)) W a),,SAT,0.0041,TIMEOUT,,SAT,0.2053
+random future,((!(((a W a) W ((X a) U (X a))) U a)) W (X a)),,SAT,0.0033,SAT,63.8918,SAT,0.0116
+random future,(!(!(!((!(!a)) U (X (X (((X a) W a) U a))))))),,UNSAT,0.0039,UNSAT,0.0246,UNSAT,0.0086
+random future,(((a W a) U (((X a) U a) U ((!a) U a))) W a),,SAT,0.0035,SAT,18.2381,SAT,0.0243
+random future,((!(!(((a W (!a)) U (!(X a))) W (X a)))) W a),,SAT,0.0033,SAT,0.1916,SAT,0.0108
+random future,((X (X a)) W (a W (X ((!(X a)) W (!(a U a)))))),,SAT,0.0064,SAT,21.4888,SAT,0.0212
+random future,(((!a) U (X (X a))) U (!(X ((a W (X a)) W a)))),,UNSAT,0.0061,UNSAT,0.1709,UNSAT,0.0139
+random future,(X (!(!(!(((X (X (a U (X a)))) U a) U (X a)))))),,UNSAT,0.0034,UNSAT,0.0245,UNSAT,0.0066
+random future,(X (((X (!(a W (!a)))) W a) U ((!a) W (!a)))),,UNSAT,0.0062,UNSAT,0.0034,UNSAT,0.0122
+random future,(!(!(((a U a) W (!((X a) U (!a)))) W (X a)))),,SAT,0.0037,SAT,1.0717,SAT,0.0125
+random future,(X (X (!(!(X ((!a) U ((!(a U a)) W (X a)))))))),,SAT,0.0033,SAT,0.1746,SAT,0.0069
+random future,((X ((X ((X a) U (a U a))) U (!a))) W (!(X a))),,UNSAT,0.0034,UNSAT,0.0190,UNSAT,0.0076
+random future,(a W (((!a) U (!a)) U (!(!(!(a W (X a))))))),,SAT,0.0039,SAT,0.1558,SAT,0.0099
+random future,(((X ((a U a) U a)) W ((X a) U (a W a))) W a),,SAT,0.0035,TIMEOUT,,SAT,0.1582
+random future,(((a W a) W ((!a) W a)) U (a W ((!a) W a))),,UNSAT,0.0054,SAT,18.2802,SAT,0.0141
+random future,(!((X a) W (((a U (!a)) U (X (X a))) W (X a)))),,UNSAT,0.0035,UNSAT,0.0132,UNSAT,0.0070
+random future,((!(a W a)) W (X (!(!((X a) U (a W (!a))))))),,UNSAT,0.0054,SAT,0.0580,SAT,0.0123
+random future,(!(X (((X a) U (X a)) W ((X ((X a) U a)) W a)))),,UNSAT,0.0034,UNSAT,0.2840,UNSAT,0.0071
+random future,((!((!a) W a)) U (X (a U (!(!(a U (!a))))))),,UNSAT,0.0056,UNSAT,0.0035,UNSAT,0.0112
+random future,(!((!((X a) W (!(X (a W (!a)))))) W (a U a))),,UNSAT,0.0031,UNSAT,0.0022,UNSAT,0.0060
+random future,(!(((a W (X a)) U (a W a)) U (a W (X (X a))))),,UNSAT,0.0037,UNSAT,1.4461,UNSAT,0.0083
+random future,(a U (X (!(!(X (X (X ((a W (a U a)) W a)))))))),,SAT,0.0034,TIMEOUT,,SAT,0.0068
+random future,((((X a) W a) U (X a)) W ((X (a W a)) W (!a))),,SAT,0.0042,SAT,48.4878,SAT,0.0207
+random future,((a U ((X a) U a)) U (!(X ((!(X a)) U (!a))))),,SAT,0.0033,SAT,0.1803,SAT,0.0083
+random future,((a U a) U (X ((!(!a)) W (a W (!(a U a)))))),,SAT,0.0059,SAT,0.6455,SAT,0.0082
+random future,(!(((X (X (a U a))) W (X (!(a W a)))) W (!a))),,UNSAT,0.0032,UNSAT,0.0095,UNSAT,0.0065
+random future,((a U (X a)) U ((a U (X a)) U (a U (a W a)))),,SAT,0.0057,SAT,4.6435,SAT,0.0130
+random future,((((!a) U (X a)) U (!((X a) U (X a)))) U (X a)),,SAT,0.0035,SAT,0.0381,SAT,0.0075
+random future,(X (X ((a W (!a)) W (!(a U ((X a) U (!a))))))),,SAT,0.0061,SAT,0.0032,SAT,0.0114
+random future,(!((!((!(a U a)) U (X a))) U (a U (a W a)))),,UNSAT,0.0034,UNSAT,1.0214,UNSAT,0.0079
+random future,((a W a) W ((((a U a) W a) W (X a)) W (!a))),,SAT,0.0053,TIMEOUT,,SAT,2.0167
+random future,((((X a) U ((!a) U (!(X a)))) U (!a)) U (X a)),,SAT,0.0033,SAT,26.5233,SAT,0.0093
+random future,(((!a) U (a U a)) U (!((!(!a)) U (a U a)))),,UNSAT,0.0059,UNSAT,0.0273,UNSAT,0.0124
+random future,(!(!(X ((!(X (!(!(X (!(!a))))))) U (X (!a)))))),,UNSAT,0.0058,UNSAT,0.0046,UNSAT,0.0059
+random future,((!(((!a) U (!a)) U ((a W a) U a))) U (!a)),,UNSAT,0.0064,UNSAT,0.0095,UNSAT,0.0117
+random future,(!(!(!((!a) W (a U ((a U (a W a)) U a)))))),,UNSAT,0.0033,UNSAT,0.3497,UNSAT,0.0094
+random future,(X (!((X (X a)) W (a W (((a W a) U a) W a))))),,UNSAT,0.0063,UNSAT,82.5434,UNSAT,0.0183
+random future,(X ((!a) U (X (!(a W ((!a) U (X (a U a)))))))),,UNSAT,0.0031,UNSAT,0.0090,UNSAT,0.0068
+random future,(a U ((!a) W ((((X (!a)) U a) W a) U (X a)))),,SAT,0.0034,TIMEOUT,,SAT,0.0138
+random future,((!a) W (((!(!a)) W (!a)) W (X (!(X (!a)))))),,UNSAT,0.0055,SAT,117.5013,SAT,0.0116
+random future,(X (X ((a U (X a)) W ((!a) U (X ((X a) U a)))))),,SAT,0.0034,SAT,0.8365,SAT,0.0094
+random future,((X (!(((!(a W (!a))) W a) U (X (X a))))) W a),,SAT,0.0032,SAT,0.0546,SAT,0.0067
+random future,(X (a U (((X ((a W (a W a)) W a)) W a) W a))),,SAT,0.0062,TIMEOUT,,SAT,0.0445
+random future,((!(!((X (!a)) U (a U (a W a))))) W (!(!a))),,SAT,0.0033,SAT,70.4286,SAT,0.0149
+random future,(((!((!a) W (!a))) W (!(!(X (!(!a)))))) W a),,SAT,0.0037,SAT,0.0854,SAT,0.0084
+random future,((X a) W (!((a W (X a)) U (X (X (a U (!a))))))),,SAT,0.0035,SAT,0.0408,SAT,0.0073
+random future,(X (((X (X (a U (a W a)))) W ((!a) W a)) W a)),,SAT,0.0068,SAT,0.0033,SAT,0.0112
+random future,((!((a U a) U ((X a) W (X a)))) W (a U (!a))),,UNSAT,0.0034,UNSAT,0.4222,UNSAT,0.0095
+random future,((X (X (a W a))) W ((X (X a)) U ((!a) U (X a)))),,SAT,0.0036,SAT,1.3405,SAT,0.0139
+random future,((a W (!a)) U (((X (!(!a))) U (X (!a))) U a)),,SAT,0.0059,SAT,0.0061,SAT,0.0122
+random future,(X ((a W (!a)) W (((!a) W (X a)) U (X (X a))))),,SAT,0.0055,SAT,0.0035,SAT,0.0108
+random future,(X (X (X ((a W (!(X ((a W a) U a)))) W (X a))))),,SAT,0.0036,SAT,5.1770,SAT,0.0086
+random future,((!(!a)) W (!((a W a) W ((X a) W (a U a))))),,SAT,0.0036,SAT,112.0982,SAT,0.0523
+random future,((a W (a U a)) U ((!a) U ((!a) U (a W a)))),,SAT,0.0059,SAT,1.3375,SAT,0.0152
+random future,(X ((!(X a)) U (!((a U a) W (X (a W (!a))))))),,UNSAT,0.0031,UNSAT,0.0023,UNSAT,0.0067
+random future,((a U (X a)) U (((X a) U ((X a) U a)) W (X a))),,SAT,0.0033,SAT,11.9059,SAT,0.0116
+random future,(X (X (X (!(((X (a U a)) W (a U a)) U (!a)))))),,SAT,0.0030,SAT,0.0025,SAT,0.0062
+random future,(a W (X ((a W ((!a) W a)) U ((X a) U (!a))))),,SAT,0.0034,SAT,0.0105,SAT,0.0066
+random future,((!(a U (!(a U a)))) U (!((X (X a)) U (X a)))),,UNSAT,0.0034,UNSAT,0.0031,UNSAT,0.0059
+random future,(((X ((!a) W a)) W (((!a) W a) W a)) W (X a)),,UNSAT,0.0065,SAT,0.0026,SAT,0.0109
+random future,(X (((X a) U (X a)) U ((X (X a)) U (X (a W a))))),,SAT,0.0064,SAT,0.1466,SAT,0.0112
+random future,((a W (X (X (X a)))) U ((!a) W ((X (!a)) W a))),,SAT,0.0100,TIMEOUT,,SAT,0.0582
+random future,(X (!(((X (!a)) W (a W (X (!a)))) W (a U a)))),,UNSAT,0.0066,UNSAT,37.7176,UNSAT,0.0132
+random future,((!(!((X a) W (X (!((!a) U (a W a))))))) U a),,SAT,0.0037,SAT,0.0092,SAT,0.0067
+random future,((X a) U ((a U a) W (((X a) W (!a)) U (X a)))),,SAT,0.0041,SAT,3.0644,SAT,0.0108
+random future,(((a W a) U (X a)) W (((X a) W (X (X a))) U a)),,SAT,0.0041,SAT,12.1562,SAT,0.0261
+random future,((X (a U a)) U (X (X (!(!(!((X a) W (!a)))))))),,UNSAT,0.0065,UNSAT,0.0108,UNSAT,0.0132
+random future,((X a) U ((a W ((a U (X (!a))) W a)) W (X a))),,SAT,0.0045,TIMEOUT,,SAT,0.0485
+random future,((a W (!(!a))) W ((a U a) W ((!a) W (!a)))),,UNSAT,0.0057,SAT,21.2424,SAT,0.0130
+random future,((a U ((X a) U a)) U (((X a) W (!a)) U (a U (!((X a) U a))))),,UNSAT,0.0037,UNSAT,2.5699,UNSAT,0.0092
+random future,(X (X (X (a W (((!(!((X a) U (a U (X a))))) U (a U a)) W a))))),,SAT,0.0046,TIMEOUT,,SAT,0.3130
+random future,(((((!a) U (X a)) U (a U a)) W (X a)) W (((!a) U a) W (!a))),,SAT,0.0061,TIMEOUT,,SAT,0.0627
+random future,((a U (!a)) U ((a U (!a)) W (((X a) U (a U (a W a))) W a))),,SAT,0.0040,TIMEOUT,,SAT,0.1301
+random future,(!((!(X ((a W (X a)) W a))) W (((a U a) W (X (a U a))) U a))),,UNSAT,0.0066,UNSAT,54.1229,UNSAT,0.0100
+random future,(X (!(X (!(!((X (X a)) W ((X (!(!(X a)))) W (a U (a U a))))))))),,UNSAT,0.0078,UNSAT,8.1702,UNSAT,0.0114
+random future,(!(((((X a) W a) U ((X a) W (a W a))) U (a U a)) W (a U a))),,UNSAT,0.0048,TIMEOUT,,UNSAT,0.0157
+random future,((X (a U (!(a W a)))) U (X (X (((X a) W (X a)) W (a W (!a)))))),,SAT,0.0070,SAT,34.9290,SAT,0.0124
+random future,(((X (X (X a))) U (a W a)) W (!((X a) U (a U (!(X (a W a))))))),,SAT,0.0044,SAT,3.7678,SAT,0.0121
+random future,((!(!(((!a) U (!a)) W (X (!a))))) W (!(X (X ((!a) W (!a)))))),,SAT,0.0044,SAT,1.0398,SAT,0.0116
+random future,(!((!(((!((!a) U a)) U ((!a) U a)) U (!(!a)))) U (X (!a)))),,SAT,0.0033,SAT,0.0067,SAT,0.0067
+random future,(((a U a) U ((!a) U (X (X a)))) U (a U ((!(a W a)) W (!a)))),,UNSAT,0.0084,UNSAT,18.7339,UNSAT,0.0172
+random future,(!(!(((a W a) U (a W (a U (a U a)))) U (a U (!(X (X a))))))),,UNSAT,0.0080,TIMEOUT,,UNSAT,0.2045
+random future,(!((((((a W a) W a) W (X a)) U a) W (X ((X a) W (X a)))) U a)),,UNSAT,0.0043,TIMEOUT,,UNSAT,0.0085
+random future,((a U (a W (X (a W a)))) W (((X a) W (a U a)) U (a U (!a)))),,SAT,0.0071,TIMEOUT,,SAT,17.3215
+random future,(X (X ((!(X a)) U ((X ((!(!(X a))) W (a W a))) U ((!a) W a))))),,SAT,0.0065,TIMEOUT,,SAT,0.0119
+random future,(!((((!a) U (!a)) U ((a W (a U a)) W a)) W (!(a U (!a))))),,UNSAT,0.0036,UNSAT,28.8513,UNSAT,0.0063
+random future,(((a U (!a)) U (!a)) W ((a W ((X a) W (!(a W (!a))))) U a)),,SAT,0.0039,SAT,6.6733,SAT,0.0124
+random future,((((X a) W (!a)) W (!(((X a) U a) U a))) W (a U ((!a) U a))),,SAT,0.0067,TIMEOUT,,SAT,0.1845
+random future,(((!(!a)) W (!a)) W (X (((a W (X (!a))) U a) W (!(a W a))))),,UNSAT,0.0067,SAT,46.4698,SAT,0.0109
+random future,(X (X ((X (!a)) U ((!(a W (a W a))) W (((!(X a)) W a) W a))))),,SAT,0.0043,TIMEOUT,,SAT,0.0131
+random future,(!((X (a W ((!(a U (X a))) U (a U (a W a))))) W ((X a) U a))),,UNSAT,0.0040,TIMEOUT,,UNSAT,0.0091
+random future,(((X a) U (a U (X a))) U ((a U ((!a) W (!a))) W ((!a) W a))),,UNSAT,0.0064,SAT,49.4705,SAT,0.0103
+random future,((((X (!(!a))) U a) U ((!(!a)) U a)) U (!(!((a W a) W a)))),,SAT,0.0063,SAT,70.5740,SAT,0.0254
+random future,(!(!(X ((X (X (!(X ((X ((X a) U (a W a))) U (a W a)))))) U a)))),,SAT,0.0046,SAT,0.9977,SAT,0.0067
+random future,((((!a) W a) W (X (a W a))) U ((a W a) W ((X (X a)) U (X a)))),,SAT,0.0043,SAT,0.4941,SAT,0.0065
+random future,(((a W a) W (X (!(X (a U a))))) U ((!a) W (a U (a U (X a))))),,SAT,0.0141,TIMEOUT,,SAT,0.0605
+random future,(X (X (!(((!(a W a)) W (!a)) W (a U (X (!((a U a) W a)))))))),,SAT,0.0040,SAT,34.3269,SAT,0.0072
+random future,((a W (a W a)) U ((!((a W (!((X a) U (X a)))) W a)) U (!a))),,UNSAT,0.0062,UNSAT,0.3122,UNSAT,0.0114
+random future,((!(!(a U (X a)))) W (X (((X (a W a)) U (a U a)) W (a U a)))),,SAT,0.0047,TIMEOUT,,SAT,0.0861
+random future,(!((X (a W ((X a) U ((X a) W (X ((X a) W a)))))) U (X (a W a)))),,UNSAT,0.0065,TIMEOUT,,UNSAT,0.0125
+random future,((X (X ((a U a) U (a U (X (a U (a U a))))))) W (a U (!(!a)))),,SAT,0.0044,TIMEOUT,,SAT,0.0514
+random future,((X ((((X a) W ((X a) U a)) W (X a)) U (X ((X a) W a)))) W (X a)),,SAT,0.0065,TIMEOUT,,SAT,2.5447
+random future,(((X (!a)) U ((!a) W a)) U (X ((a W a) W (a W (a U (!a)))))),,SAT,0.0065,SAT,105.3650,SAT,0.0092
+random future,((((X a) W ((X a) W a)) W a) W ((!((!a) U (!(!a)))) W (X a))),,SAT,0.0048,TIMEOUT,,SAT,1.8049
+random future,(!((!((X (!a)) U (((X (X a)) U ((!(!a)) U a)) W a))) U (!a))),,SAT,0.0034,SAT,44.9671,SAT,0.0128
+random future,(!(!(((!(!(a U a))) U (X a)) U ((a W a) U ((X (X a)) U a))))),,SAT,0.0069,SAT,79.4512,SAT,0.0121
+random future,(X (a U ((!((a U (!(X a))) W (X (a W a)))) W ((a W a) W a)))),,SAT,0.0066,SAT,24.3286,SAT,0.0121
+random future,(a W ((!((a W a) W (a U a))) W (X (!(!(!((a W a) U a))))))),,SAT,0.0049,TIMEOUT,,SAT,0.3597
+random future,(((X a) U (!(!(a W a)))) U (X (X (!(!(!(!((!a) W (!a))))))))),,UNSAT,0.0036,UNSAT,27.0394,UNSAT,0.0068
+random future,(((X (X (X (X (a W (a W a)))))) U (a U a)) U ((a U (X a)) W a)),,SAT,0.0096,TIMEOUT,,SAT,0.7486
+random future,((X ((X a) U a)) U (!(((!a) U (a W a)) U (!((a W a) W a))))),,SAT,0.0038,SAT,44.1320,SAT,0.0075
+random future,((X ((X (X a)) W (X ((((X a) W (X a)) W a) W a)))) W (a W (X a))),,SAT,0.0110,TIMEOUT,,SAT,9.5381
+random future,(!(((a W a) U a) W (X (!(!(X (!(a U ((!(!a)) W (!a)))))))))),,UNSAT,0.0046,UNSAT,64.1567,UNSAT,0.0117
+random future,(a W ((a U a) W ((X (X ((X (X a)) U a))) U ((!(X (X a))) W a)))),,SAT,0.0043,TIMEOUT,,SAT,27.1717
+random future,((a U (X a)) U (!(X (!((!(a U (!a))) W (a U ((X a) U a))))))),,SAT,0.0027,TIMEOUT,,SAT,0.0148
+random future,((X (a W (X a))) W (X (X (X (((X (a U a)) U a) U (a W (!a))))))),,SAT,0.0041,TIMEOUT,,SAT,0.0474
+random future,(X (((X a) U (!a)) U (X (!(((a U a) U a) U ((a W a) W a)))))),,UNSAT,0.0024,TIMEOUT,,UNSAT,0.0099
+random future,(((X a) W ((X a) U a)) U ((((!a) U a) U (X a)) W (!(a U a)))),,SAT,0.0033,SAT,111.2238,SAT,0.0192
+random future,(((!((a W a) U (a U (a U a)))) U (X (a U (!a)))) U (!(!a))),,SAT,0.0050,TIMEOUT,,SAT,0.0994
+random future,(((X ((X a) W a)) U ((!a) W (X (a U (!(a W a)))))) U (X (X a))),,SAT,0.0079,TIMEOUT,,SAT,0.0509
+random future,((a U (a U (X a))) U (((X a) W a) W ((X a) U ((!a) U (!a))))),,SAT,0.0039,TIMEOUT,,SAT,0.0193
+random future,(((X ((X (X ((!a) W (!a)))) U ((X a) U (!a)))) U a) W (X (X a))),,SAT,0.0048,SAT,43.7851,SAT,0.0162
+random future,(X ((!a) U ((((!a) W a) U (!a)) W (a U (!(a U (X (X a)))))))),,UNSAT,0.0034,UNSAT,10.4926,UNSAT,0.0143
+random future,(a W (((X a) U (!((X (!a)) U a))) W ((!a) W (!(a W (!a)))))),,SAT,0.0026,SAT,0.9588,SAT,0.0112
+random future,((((!a) W (!a)) W (!(a U a))) W (((X a) W (!a)) U (!(!a)))),,SAT,0.0028,SAT,4.3802,SAT,0.0153
+random future,((!((X (X (!a))) U (!(((!(X a)) U a) W ((X a) U a))))) W (!a)),,SAT,0.0043,TIMEOUT,,SAT,0.0361
+random future,(((a W (a U a)) U (X (X a))) U ((!a) W (X ((X a) U (!(X a)))))),,UNSAT,0.0134,TIMEOUT,,UNSAT,0.0293
+random future,((X (!(X (((X (!a)) U a) W a)))) W ((a W ((!a) U (!a))) W a)),,SAT,0.0051,TIMEOUT,,SAT,0.1021
+random future,(!(((X a) W ((X a) U (!a))) W (X ((!a) W (X (X ((!a) U a))))))),,UNSAT,0.0032,UNSAT,59.9084,UNSAT,0.0081
+random future,(!((a U a) W (X (X (!((a W a) W ((a U (!a)) W (a U a)))))))),,UNSAT,0.0059,TIMEOUT,,UNSAT,0.0301
+random future,(((a U (a U a)) W (a W (!a))) W (X (X ((!a) U (a W (X a)))))),,UNSAT,0.0041,SAT,11.1097,SAT,0.0132
+random future,((!(a U (X a))) U ((X a) U ((!(!a)) U ((!(X a)) W (a U a))))),,SAT,0.0028,SAT,1.3448,SAT,0.0075
+random future,((!(a U (((X (!(X a))) U (!(X (X a)))) W a))) W (X (!(a W a)))),,UNSAT,0.0027,UNSAT,0.5889,UNSAT,0.0101
+random future,(!((!(X (a U (a U (X a))))) U ((a W (a U (X (X a)))) U (X a)))),,UNSAT,0.0026,UNSAT,0.0452,UNSAT,0.0073
+random future,(!(!((((a U a) U (X a)) U ((X a) W (!a))) U ((!a) U (!a))))),,UNSAT,0.0039,UNSAT,0.6714,UNSAT,0.0091
+random future,(((X ((a W (a U a)) U ((X a) W (X a)))) U a) U (X (a W (X a)))),,SAT,0.0063,TIMEOUT,,SAT,0.1197
+random future,(!(X (((!a) U (X (!(X ((((X a) W (X a)) W a) W (X a)))))) W a))),,UNSAT,0.0038,UNSAT,16.6154,UNSAT,0.0116
+random future,((!((!(a U (!(!a)))) U (a U a))) W (!(!((X a) U (!(X a)))))),,UNSAT,0.0025,UNSAT,0.0175,UNSAT,0.0080
+random future,(a W (!((X ((!a) W (a W (X a)))) U (a U (!((a W a) U a)))))),,SAT,0.0034,SAT,21.4165,SAT,0.0198
+random future,(((X a) W (a U (X a))) U (X (((!a) W (X (a W (a W a)))) W a))),,SAT,0.0033,TIMEOUT,,SAT,0.1023
+random future,((!(!(((X a) W a) W (!(X (a U a)))))) U (X (X (X ((!a) W a))))),,SAT,0.0068,TIMEOUT,,SAT,0.0231
+random future,((X (X ((a U a) U (a U a)))) W (X ((X a) W ((a W (!a)) W a)))),,SAT,0.0038,SAT,19.6458,SAT,0.0111
+random future,(X (((X a) U (X (a U ((!(!a)) W (a U a))))) W (a U (!(X a))))),,SAT,0.0038,TIMEOUT,,SAT,0.1018
+random future,(X (((a W a) W (!a)) W (!((!(!(!(X (a W a))))) W (a W a))))),,SAT,0.0031,SAT,27.7552,SAT,0.0090
+random future,(X (((X a) U (!((!a) U a))) U ((X (!(!a))) W (!((!a) W a))))),,SAT,0.0029,SAT,0.0037,SAT,0.0068
+random future,((!(a W (!(X (a U (a U a)))))) U ((!(!a)) U ((!(!a)) U a))),,SAT,0.0040,SAT,0.0186,SAT,0.0118
+random future,((X a) U (((!a) W ((a U (a U a)) U (X (X a)))) U ((!a) U a))),,SAT,0.0041,TIMEOUT,,SAT,0.0850
+random future,(((X ((X (X (!a))) U (X a))) U (X (X (X (X a))))) U (a W (a W a))),,SAT,0.0052,SAT,18.1043,SAT,0.0110
+random future,((!(((!a) W (!(a W a))) W (a U ((!a) U a)))) U (!(X (X a)))),,UNSAT,0.0043,UNSAT,0.0090,UNSAT,0.0127
+random future,((!(a U (X ((a W a) U a)))) W (!((a U a) W (a W (!(X a)))))),,UNSAT,0.0027,UNSAT,2.0024,UNSAT,0.0124
+random future,(a U ((X (a U a)) W (((a W (X a)) W (X (a U (a U a)))) U a))),,SAT,0.0063,TIMEOUT,,SAT,1.5939
+random future,((X ((X ((!(a U a)) U (!(!(!a))))) U (!a))) W (X (!(a U a)))),,UNSAT,0.0027,UNSAT,30.0595,UNSAT,0.0083
+random future,(((!((a W a) U (X a))) U ((!a) W a)) W ((X a) U (a U (X a)))),,UNSAT,0.0044,SAT,0.4653,SAT,0.0169
+random future,(!(X ((!a) W (X (X (!((((!a) U a) W (a U (a U a))) W a))))))),,SAT,0.0040,TIMEOUT,,SAT,0.0319
+random future,(((((X a) U (X a)) U (!a)) W a) W (((!a) U a) U (a U (X a)))),,SAT,0.0030,TIMEOUT,,SAT,0.0379
+random future,(X ((X (((X a) W a) W ((X a) W (X (!a))))) U (a W (!(a U a))))),,SAT,0.0045,SAT,29.6573,SAT,0.0077
+random future,(((X a) U a) U (!(!(((a W (a U a)) W (X (X (!a)))) W (!a))))),,SAT,0.0037,TIMEOUT,,SAT,0.0431
+random future,(!((((!(!(a U ((a W a) U a)))) U a) U ((!a) U (!a))) W a)),,UNSAT,0.0022,TIMEOUT,,UNSAT,0.0075
+random future,(((((!a) U a) W (a W a)) U a) W (!(X (!((X (a U a)) W a))))),,SAT,0.0035,TIMEOUT,,SAT,0.3655
+random future,(X ((!(!(((a U (X a)) W (!a)) W (!a)))) W (X (a W (a W a))))),,SAT,0.0046,SAT,74.5690,SAT,0.0234
+random future,(((((X a) W a) W (a W a)) W (X a)) U (X (X ((X (a U a)) U a)))),,SAT,0.0059,TIMEOUT,,SAT,0.5583
+random future,(!((((!(X a)) U a) U ((!a) W ((X a) U (X a)))) W (a U (!a)))),,UNSAT,0.0025,UNSAT,28.4194,UNSAT,0.0065
+random future,(((a W (!(!a))) U (!((X a) W ((a W a) U (!(X a)))))) U (X a)),,SAT,0.0040,SAT,0.0619,SAT,0.0126
+random future,(X (((!(X (X a))) U ((X ((a W a) W a)) W (a W a))) W (a U a))),,SAT,0.0028,TIMEOUT,,SAT,0.2128
+random future,(!(((!(X (a W a))) U (!((X ((!a) U a)) U a))) W (X (a U a)))),,UNSAT,0.0030,UNSAT,77.6239,UNSAT,0.0082
+random future,((!(!a)) W (!((X ((a U (!a)) W (a W a))) U ((!a) W (!a))))),,SAT,0.0030,SAT,0.0164,SAT,0.0073
+random future,((X (X (a W a))) W (X ((X a) W ((a U a) U (!(a W (a U a))))))),,SAT,0.0034,TIMEOUT,,SAT,0.0857
+random future,(X ((X ((a W a) W (X (X ((!a) W (!a)))))) U ((a W (!a)) U a))),,SAT,0.0050,SAT,20.6398,SAT,0.0116
+random future,((a U (a U a)) W ((a W a) W ((X a) U (!(a U (a W (X a))))))),,SAT,0.0048,TIMEOUT,,SAT,0.2058
+random future,(X (b U (!a))),,SAT,0.0045,SAT,101.7855,SAT,0.0123
+random future,(!(a U (!a))),,SAT,0.0022,SAT,0.0042,SAT,0.0060
+random future,((b W a) U b),,SAT,0.0041,SAT,0.0057,SAT,0.0066
+random future,((X a) W (!b)),,SAT,0.0025,SAT,0.0064,SAT,0.0059
+random future,((!(!a)) W b),,SAT,0.0024,SAT,0.0036,SAT,0.0057
+random future,(b W (a W a)),,SAT,0.0022,SAT,0.0030,SAT,0.0058
+random future,(X (!(a U a))),,UNSAT,0.0021,UNSAT,0.0049,UNSAT,0.0058
+random future,(a U (b U b)),,SAT,0.0038,SAT,0.0060,SAT,0.0108
+random future,(b U (!(X b))),,UNSAT,0.0042,UNSAT,0.0053,UNSAT,0.0106
+random future,((!b) U (X a)),,SAT,0.0045,SAT,0.0055,SAT,0.0104
+random future,((b W a) U a),,SAT,0.0024,SAT,0.0050,SAT,0.0059
+random future,(b W (b W a)),,SAT,0.0028,SAT,0.0106,SAT,0.0064
+random future,((X (!a)) W b),,SAT,0.0022,SAT,0.0035,SAT,0.0060
+random future,((a U a) U b),,SAT,0.0043,SAT,0.0044,SAT,0.0108
+random future,(!((!a) U b)),,SAT,0.0026,SAT,0.0024,SAT,0.0062
+random future,(a W (X (!b))),,SAT,0.0023,SAT,0.0032,SAT,0.0059
+random future,((b U a) W b),,SAT,0.0024,SAT,0.0031,SAT,0.0059
+random future,((a U b) U a),,SAT,0.0023,SAT,0.0045,SAT,0.0111
+random future,(!((X a) U a)),,UNSAT,0.0023,UNSAT,0.0037,UNSAT,0.0059
+random future,((b W a) W b),,SAT,0.0017,SAT,0.0061,SAT,0.0068
+random future,(!((!b) W b)),,UNSAT,0.0024,UNSAT,0.0018,UNSAT,0.0057
+random future,(X (!(a U b))),,SAT,0.0025,SAT,0.0021,SAT,0.0058
+random future,((!b) U (!a)),,SAT,0.0039,SAT,0.0035,SAT,0.0110
+random future,((b U b) W b),,SAT,0.0022,SAT,0.0040,SAT,0.0105
+random future,((b U a) U a),,SAT,0.0026,SAT,0.0042,SAT,0.0059
+random future,((X (!a)) W a),,SAT,0.0022,SAT,0.0023,SAT,0.0056
+random future,(X (!(b U b))),,UNSAT,0.0024,UNSAT,0.0034,UNSAT,0.0057
+random future,(!(a W (!b))),,SAT,0.0040,SAT,0.0034,SAT,0.0104
+random future,((!a) U (!b)),,SAT,0.0031,SAT,0.0047,SAT,0.0113
+random future,((!b) W (!a)),,UNSAT,0.0039,SAT,0.0037,SAT,0.0061
+random future,((!(!b)) U b),,SAT,0.0021,SAT,0.0033,SAT,0.0112
+random future,(!(X (X (!b)))),,SAT,0.0038,SAT,0.0033,SAT,0.0110
+random future,((b U b) U a),,SAT,0.0047,SAT,0.0044,SAT,0.0112
+random future,((!b) U (!b)),,UNSAT,0.0017,UNSAT,0.0041,UNSAT,0.0106
+random future,(!(b W (X a))),,SAT,0.0037,SAT,0.0037,SAT,0.0116
+random future,(X ((!a) U b)),,SAT,0.0036,SAT,0.0036,SAT,0.0114
+random future,(!(!(b W a))),,SAT,0.0022,SAT,0.0024,SAT,0.0063
+random future,((!b) U (X b)),,SAT,0.0037,SAT,0.0034,SAT,0.0113
+random future,(X (X (X (X a)))),,SAT,0.0040,SAT,0.0049,SAT,0.0123
+random future,(b W (b W b)),,SAT,0.0022,SAT,0.0042,SAT,0.0125
+random future,(X (a U (X b))),,SAT,0.0039,SAT,0.0042,SAT,0.0119
+random future,((b W b) W b),,SAT,0.0020,SAT,0.0044,SAT,0.0122
+random future,(X (!(b W a))),,UNSAT,0.0036,UNSAT,0.0039,UNSAT,0.0113
+random future,(!((!b) U a)),,SAT,0.0020,SAT,0.0023,SAT,0.0060
+random future,(a U (b W a)),,SAT,0.0022,SAT,0.0050,SAT,0.0066
+random future,(X (!(!(!b)))),,UNSAT,0.0032,UNSAT,0.0042,UNSAT,0.0116
+random future,(X (X (X (!b)))),,UNSAT,0.0035,UNSAT,0.0036,UNSAT,0.0120
+random future,((X (!b)) U a),,SAT,0.0036,SAT,0.0035,SAT,0.0117
+random future,(X (X (b W b))),,SAT,0.0022,SAT,0.0035,SAT,0.0064
+random future,(!(!(X (X a)))),,SAT,0.0038,SAT,0.0033,SAT,0.0115
+random future,(!(a U (!b))),,SAT,0.0021,SAT,0.0023,SAT,0.0059
+random future,(b U (a U b)),,SAT,0.0038,SAT,0.0041,SAT,0.0105
+random future,(!(X (b U a))),,SAT,0.0017,SAT,0.0024,SAT,0.0068
+random future,(b W (b U a)),,SAT,0.0025,SAT,0.0032,SAT,0.0059
+random future,((X a) U (!b)),,SAT,0.0040,SAT,0.0034,SAT,0.0109
+random future,(!(!(a W a))),,SAT,0.0023,SAT,0.0037,SAT,0.0105
+random future,(X (b W (X a))),,SAT,0.0023,SAT,0.0026,SAT,0.0059
+random future,((b U a) W a),,SAT,0.0022,SAT,0.0042,SAT,0.0069
+random future,(!((X b) W a)),,SAT,0.0034,SAT,0.0041,SAT,0.0103
+random future,((X (X b)) W a),,SAT,0.0022,SAT,0.0051,SAT,0.0059
+random future,(b U (X (!a))),,SAT,0.0035,SAT,0.0034,SAT,0.0111
+random future,(b U (b U b)),,SAT,0.0038,SAT,0.0038,SAT,0.0102
+random future,(a U (X (X b))),,SAT,0.0038,SAT,0.0048,SAT,0.0105
+random future,(b W (X (X b))),,SAT,0.0028,SAT,0.0035,SAT,0.0059
+random future,((!a) W (!b)),,UNSAT,0.0040,SAT,0.0036,SAT,0.0057
+random future,((b U b) W a),,SAT,0.0017,SAT,0.0036,SAT,0.0067
+random future,((X (X b)) W b),,SAT,0.0021,SAT,0.0048,SAT,0.0058
+random future,((X b) W (X b)),,SAT,0.0019,SAT,0.0032,SAT,0.0059
+random future,(X (X (b U a))),,SAT,0.0037,SAT,0.0040,SAT,0.0102
+random future,(b W (X (!b))),,SAT,0.0022,SAT,0.0025,SAT,0.0056
+random future,(X (b U (!b))),,UNSAT,0.0037,UNSAT,0.0035,UNSAT,0.0103
+random future,((X b) U (X a)),,SAT,0.0038,SAT,0.0034,SAT,0.0102
+random future,(X (X (b U b))),,SAT,0.0023,SAT,0.0034,SAT,0.0054
+random future,(b U (a W b)),,SAT,0.0024,SAT,0.0038,SAT,0.0058
+random future,(X (((a W a) W b) U (a W b))),,SAT,0.0027,SAT,0.7398,SAT,0.0087
+random future,(X ((X (X ((X a) W a))) W (!b))),,SAT,0.0027,SAT,0.0477,SAT,0.0074
+random future,(X (X (X ((!b) W (a U (!b)))))),,SAT,0.0024,SAT,0.0142,SAT,0.0060
+random future,(a W (((b W b) W a) U (X b))),,SAT,0.0031,SAT,24.5350,SAT,0.0284
+random future,(X (X (((!a) W a) U (b U b)))),,SAT,0.0042,SAT,0.0044,SAT,0.0134
+random future,((!a) W (X (b W ((X b) W a)))),,SAT,0.0029,SAT,3.6719,SAT,0.0109
+random future,((a W b) W ((!b) W (b W b))),,SAT,0.0027,SAT,3.1384,SAT,0.0175
+random future,((X a) U ((!(X a)) W (X (X b)))),,SAT,0.0030,SAT,0.0082,SAT,0.0066
+random future,(!(!(!((!b) W (X (a W a)))))),,SAT,0.0028,SAT,0.0033,SAT,0.0064
+random future,((X a) U ((!a) U (b U (!a)))),,SAT,0.0042,SAT,0.0039,SAT,0.0111
+random future,((b U a) U ((!a) U (X (X b)))),,SAT,0.0042,SAT,0.1047,SAT,0.0112
+random future,((!(a W (!b))) W (a U (X b))),,SAT,0.0024,SAT,0.0256,SAT,0.0076
+random future,(X (!(!(X ((b W a) W (!a)))))),,SAT,0.0024,SAT,0.0064,SAT,0.0061
+random future,(!(X ((b W a) U ((!a) W a)))),,UNSAT,0.0022,UNSAT,0.0018,UNSAT,0.0056
+random future,(!(X ((a W (X a)) U (!(!b))))),,SAT,0.0023,SAT,0.0026,SAT,0.0058
+random future,((!(a W b)) U ((a W b) W a)),,SAT,0.0024,SAT,0.0188,SAT,0.0070
+random future,((!b) W (!((b U b) U (X a)))),,SAT,0.0025,SAT,0.0606,SAT,0.0076
+random future,(!(!(b U ((a U (X a)) W a)))),,SAT,0.0038,SAT,0.0377,SAT,0.0068
+random future,(X ((X (b U b)) U ((!a) U a))),,SAT,0.0042,SAT,0.0047,SAT,0.0127
+random future,(!(X ((!((a W b) W a)) U a))),,SAT,0.0025,SAT,0.0088,SAT,0.0068
+random future,(((b U (X a)) U (!a)) W (X b)),,SAT,0.0043,SAT,0.3553,SAT,0.0112
+random future,(!((a U (!a)) U ((X a) W b))),,UNSAT,0.0023,UNSAT,0.0031,UNSAT,0.0065
+random future,((a U a) W ((!b) U (a W a))),,SAT,0.0023,SAT,0.1283,SAT,0.0097
+random future,((b W b) W ((!(a W a)) W b)),,SAT,0.0023,SAT,0.8849,SAT,0.0136
+random future,((a W (b U (b U (!a)))) W a),,SAT,0.0026,SAT,1.8947,SAT,0.0130
+random future,((((!a) W b) W (X b)) W (!b)),,SAT,0.0028,SAT,1.0599,SAT,0.0107
+random future,(!(((!b) U (X a)) W (a U a))),,SAT,0.0023,SAT,0.0066,SAT,0.0068
+random future,((((X b) W a) U (X (!a))) W b),,SAT,0.0029,SAT,1.9150,SAT,0.0132
+random future,((X b) U (X ((b W (!a)) U a))),,SAT,0.0043,SAT,0.0215,SAT,0.0120
+random future,((!(a U (X b))) W (!(X (!a)))),,SAT,0.0025,SAT,0.0070,SAT,0.0070
+random future,(a U (a W (X (b W (a U a))))),,SAT,0.0026,SAT,1.3853,SAT,0.0073
+random future,(((b W b) W (a U a)) W (!a)),,SAT,0.0025,SAT,0.2952,SAT,0.0093
+random future,(((!a) U a) W ((!a) U (X b))),,SAT,0.0028,SAT,0.0437,SAT,0.0080
+random future,(a U (!(X ((!b) U (a U a))))),,SAT,0.0023,SAT,0.0031,SAT,0.0061
+random future,(a U (!(X ((X a) U (a W b))))),,UNSAT,0.0026,UNSAT,0.0112,UNSAT,0.0065
+random future,(((!a) U (X (X (a U b)))) U a),,SAT,0.0045,SAT,0.0110,SAT,0.0069
+random future,((b U (X b)) W ((!a) W (!a))),,SAT,0.0025,SAT,0.0412,SAT,0.0082
+random future,((X (X b)) U (!(X ((X a) W a)))),,SAT,0.0041,SAT,0.0044,SAT,0.0119
+random future,((b W b) W (!((!b) U (X b)))),,SAT,0.0022,SAT,0.0029,SAT,0.0066
+random future,((X ((X b) W (!b))) W (a U a)),,SAT,0.0023,SAT,0.0886,SAT,0.0092
+random future,((b U a) U ((X a) W (X (!b)))),,SAT,0.0022,SAT,0.0126,SAT,0.0065
+random future,(!((b W (X b)) U ((!a) U b))),,SAT,0.0022,SAT,0.0088,SAT,0.0070
+random future,(b U ((b U (b W a)) U (X a))),,SAT,0.0043,SAT,3.0851,SAT,0.0085
+random future,(!(a U (!((!(X (X a))) W b)))),,SAT,0.0025,SAT,0.0536,SAT,0.0098
+random future,((X b) W ((b U a) W (!(X a)))),,SAT,0.0027,SAT,3.1302,SAT,0.0169
+random future,((a W b) W ((X a) W (X (X b)))),,SAT,0.0026,SAT,0.5087,SAT,0.0115
+random future,((b U (X b)) U ((b U b) W b)),,SAT,0.0039,SAT,0.4749,SAT,0.0127
+random future,((X ((!(!b)) U (X (!b)))) U a),,SAT,0.0050,SAT,0.0034,SAT,0.0108
+random future,((!(X (b U ((!a) U b)))) U a),,SAT,0.0042,SAT,0.0034,SAT,0.0058
+random future,((b W (!b)) U (a W (b W b))),,SAT,0.0025,SAT,0.0286,SAT,0.0061
+random future,(a W (((!(!b)) W a) W (X a))),,SAT,0.0028,SAT,7.0360,SAT,0.0187
+random future,(!(!(a U ((a U (!b)) U a)))),,SAT,0.0045,SAT,0.0123,SAT,0.0127
+random future,((X (!b)) U ((a W b) U (!b))),,SAT,0.0025,SAT,0.0046,SAT,0.0060
+random future,((a U a) W (!((!a) U (X b)))),,SAT,0.0026,SAT,0.0331,SAT,0.0076
+random future,((!((X a) W ((!b) U b))) U a),,SAT,0.0023,SAT,0.0049,SAT,0.0060
+random future,(((X (X a)) W (!a)) W (b W b)),,SAT,0.0029,SAT,0.6231,SAT,0.0144
+random future,(((a U a) U (!b)) W (X (!b))),,SAT,0.0025,SAT,0.0401,SAT,0.0080
+random future,((a W (X (X (X (X (X a)))))) U b),,SAT,0.0671,SAT,14.1099,SAT,0.1193
+random future,(!((a U (X b)) W (b U (X b)))),,SAT,0.0035,SAT,0.0079,SAT,0.0078
+random future,(!(X (a W (X (!((!a) U a)))))),,UNSAT,0.0044,UNSAT,0.0030,UNSAT,0.0125
+random future,(a U ((!a) W ((X (!b)) U b))),,SAT,0.0025,SAT,0.0150,SAT,0.0062
+random future,((b U a) W (X (!(b W (X a))))),,SAT,0.0029,SAT,0.0265,SAT,0.0073
+random future,(((X b) U a) W ((!b) U (!b))),,SAT,0.0023,SAT,0.0049,SAT,0.0064
+random future,((!(!b)) W ((!(X b)) U (X a))),,SAT,0.0024,SAT,0.0029,SAT,0.0061
+random future,(((X b) W (X (!b))) W (a U a)),,UNSAT,0.0038,SAT,0.0025,SAT,0.0108
+random future,(a U ((a W ((X b) W b)) U a)),,SAT,0.0047,TIMEOUT,,SAT,0.0176
+random future,((!(a U (!(b U a)))) W (!a)),,SAT,0.0030,SAT,36.5208,SAT,0.0066
+random future,(!(((!(X (!b))) U b) W (X a))),,UNSAT,0.0041,UNSAT,0.0108,UNSAT,0.0109
+random future,(!(!(b U (X ((!b) W (!a)))))),,SAT,0.0039,SAT,0.0062,SAT,0.0056
+random future,(((X a) W (a U a)) U (b U a)),,SAT,0.0040,SAT,0.8592,SAT,0.0146
+random future,(b W (!(!((b W b) W (X b))))),,SAT,0.0027,SAT,0.1725,SAT,0.0080
+random future,((!((b U b) W (!(!a)))) U a),,SAT,0.0041,SAT,0.0059,SAT,0.0110
+random future,((!b) W (!(!(X ((!b) U a))))),,SAT,0.0026,SAT,0.0040,SAT,0.0059
+random future,((!(b U (!(!a)))) W (b W a)),,SAT,0.0023,SAT,0.0060,SAT,0.0067
+random future,(((X b) U b) W (!((!a) U a))),,SAT,0.0023,SAT,0.0044,SAT,0.0060
+random future,(X (!(((b U (X b)) U a) W a))),,SAT,0.0024,SAT,0.0139,SAT,0.0057
+random future,(b U ((((X b) U a) W b) U a)),,SAT,0.0042,SAT,1.5249,SAT,0.0076
+random future,((X (b W (a W a))) U (a W b)),,SAT,0.0028,SAT,0.3510,SAT,0.0077
+random future,((b U (a W (b W a))) W (!b)),,SAT,0.0027,SAT,27.5681,SAT,0.0370
+random future,((!b) W (b W (!(a U (!b))))),,SAT,0.0023,SAT,0.1246,SAT,0.0100
+random future,(X ((X (((!b) W a) U a)) W b)),,SAT,0.0025,SAT,0.0707,SAT,0.0091
+random future,(X (!((X (X (!b))) W (b U a)))),,SAT,0.0024,SAT,0.0098,SAT,0.0072
+random future,(!(X ((a U a) U ((!a) W a)))),,UNSAT,0.0023,UNSAT,0.0029,UNSAT,0.0062
+random future,((X (a U b)) W (a W (!(!a)))),,SAT,0.0023,SAT,0.0219,SAT,0.0069
+random future,(((!a) U a) U (b W (b W a))),,SAT,0.0027,SAT,1.4206,SAT,0.0079
+random future,(!(!(!(X (((!b) W a) W b))))),,UNSAT,0.0041,UNSAT,0.0056,UNSAT,0.0109
+random future,(!((!b) U ((!(!(!b))) U a))),,SAT,0.0022,SAT,0.0038,SAT,0.0057
+random future,(X (((!a) U b) U (b W (!b)))),,SAT,0.0036,SAT,0.0057,SAT,0.0107
+random future,(!(X ((b U b) U (a W (X b))))),,UNSAT,0.0022,UNSAT,0.0161,UNSAT,0.0063
+random future,((!a) U (!(!(a W (X (X b)))))),,SAT,0.0024,SAT,0.0359,SAT,0.0061
+random future,(b U (!((!a) U (!(a U b))))),,SAT,0.0023,SAT,0.0085,SAT,0.0060
+random future,((!(X ((X b) U (X a)))) U (X b)),,SAT,0.0022,SAT,0.0038,SAT,0.0057
+random future,(((!b) W ((X a) W b)) U (X b)),,SAT,0.0045,SAT,16.8096,SAT,0.0151
+random future,(X (a W ((!(!a)) U (!(!a))))),,SAT,0.0026,SAT,0.0034,SAT,0.0062
+random future,((!(!((!(!b)) U b))) W (X a)),,SAT,0.0023,SAT,0.0065,SAT,0.0067
+random future,(!(a W ((X a) W (b W (!b))))),,UNSAT,0.0020,UNSAT,0.0019,UNSAT,0.0056
+random future,(((X b) W (!(b U (X a)))) W a),,SAT,0.0025,SAT,0.3937,SAT,0.0108
+random future,((b U (b W (!(b U a)))) U a),,SAT,0.0043,SAT,0.1901,SAT,0.0145
+random future,(!(b U (X ((a U b) U (!a))))),,SAT,0.0023,SAT,0.0025,SAT,0.0063
+random future,((!(X (X (!a)))) U (!(!(X b)))),,SAT,0.0038,SAT,0.0029,SAT,0.0111
+random future,(((X a) U ((a U b) U b)) W ((X (X b)) W (X a))),,SAT,0.0036,TIMEOUT,,SAT,0.0785
+random future,((!a) U ((a W ((X (b W b)) W b)) W (b W a))),,SAT,0.0034,TIMEOUT,,SAT,0.3029
+random future,(((!((!a) W b)) U (((!a) W a) W (!a))) W a),,UNSAT,0.0040,SAT,45.7848,SAT,0.0135
+random future,(X ((X ((a U (!a)) W (X (!(!(a U b)))))) U a)),,SAT,0.0026,SAT,0.1593,SAT,0.0084
+random future,((X (((!(!a)) W (a W b)) U ((!a) W b))) W a),,SAT,0.0037,TIMEOUT,,SAT,0.1045
+random future,((((X b) U (b W a)) U a) W (!((!(!a)) U a))),,SAT,0.0038,SAT,44.3074,SAT,0.0239
+random future,(((b U b) W (X b)) U (((X b) W a) U (a U a))),,SAT,0.0065,TIMEOUT,,SAT,0.0318
+random future,(!(((X (X (!(X b)))) U (a W a)) W ((X a) U a))),,SAT,0.0033,TIMEOUT,,SAT,0.0091
+random future,(((!b) W ((!(!(!(b W (!a))))) U a)) W (!b)),,SAT,0.0027,SAT,117.8244,SAT,0.0147
+random future,(!((X (b W (b U (!b)))) U (!(X (X (X (!a))))))),,SAT,0.0024,SAT,0.0079,SAT,0.0069
+random future,(((a U (!b)) U (X (b U a))) W (a W (b W a))),,SAT,0.0037,TIMEOUT,,SAT,1.4732
+random future,(!(X ((a U b) U ((!(X (a W a))) U (b U a))))),,SAT,0.0028,SAT,85.0101,SAT,0.0077
+random future,((!((a U (X b)) W (!a))) W ((b U b) U (!a))),,SAT,0.0028,SAT,0.1195,SAT,0.0113
+random future,((((X b) U b) W (b W (a W (!a)))) W (b U a)),,UNSAT,0.0042,SAT,0.0041,SAT,0.0111
+random future,((!((b U a) U b)) U (X (((X b) U a) U (!b)))),,SAT,0.0046,SAT,0.1820,SAT,0.0117
+random future,(((a U b) U (!(a W (!b)))) W (b W (b W a))),,SAT,0.0033,TIMEOUT,,SAT,0.8566
+random future,(!(b U ((X (a U (!a))) W ((a W b) W (X b))))),,UNSAT,0.0033,UNSAT,91.7699,UNSAT,0.0116
+random future,(((X (!b)) W (b W a)) W (((b U b) U a) W b)),,SAT,0.0036,TIMEOUT,,SAT,2.1773
+random future,(X (b W ((!b) U ((!(b W (!(X b)))) U (!b))))),,SAT,0.0042,SAT,32.2358,SAT,0.0079
+random future,((b W (X a)) W (a U (((a U (!b)) U b) W a))),,SAT,0.0043,TIMEOUT,,SAT,0.9739
+random future,(X (!((X (X b)) U ((a W a) W ((a W b) W b))))),,UNSAT,0.0074,UNSAT,80.3758,UNSAT,0.0246
+random future,(X ((a U (b W ((!b) U b))) W (X (b U (!b))))),,SAT,0.0034,SAT,3.9357,SAT,0.0185
+random future,(((!a) W (X ((X a) U (X (!b))))) U (b W (X b))),,SAT,0.0061,SAT,20.3369,SAT,0.0185
+random future,(X ((!(b W b)) U (!((a U b) U ((!a) U b))))),,SAT,0.0026,SAT,1.2326,SAT,0.0084
+random future,((a U ((X b) U (a U ((X a) U a)))) W (X (X b))),,SAT,0.0040,TIMEOUT,,SAT,0.1978
+random future,(((X b) U (X (X (X b)))) U (X ((a W b) W (!b)))),,SAT,0.0035,SAT,28.7612,SAT,0.0113
+random future,(!(!(((!(b U a)) W (X b)) U (b W (a W b))))),,SAT,0.0032,SAT,44.7267,SAT,0.0187
+random future,((X (!(!(!a)))) W (((X b) U a) U ((!b) W a))),,SAT,0.0027,SAT,7.0275,SAT,0.0220
+random future,(X (X ((!b) U (((b U a) W (!a)) U (b W b))))),,SAT,0.0029,SAT,11.5980,SAT,0.0099
+random future,(X (((X a) U b) W ((a U b) U (X (X (X (X b))))))),,SAT,0.0314,TIMEOUT,,SAT,3.1781
+random future,(X (X ((!b) U ((X (!(b U b))) W (b W (!b)))))),,SAT,0.0044,SAT,42.3272,SAT,0.0119
+random future,((!(b U b)) U (!((a U b) W (!((X b) W b))))),,UNSAT,0.0043,UNSAT,0.0689,UNSAT,0.0068
+random future,((X ((a U b) U ((!b) W (!a)))) U (!(X (X a)))),,SAT,0.0046,SAT,0.2311,SAT,0.0090
+random future,(((X (!(X a))) U (X (!((X b) W (a U b))))) U a),,SAT,0.0029,SAT,0.2381,SAT,0.0079
+random future,((!(b U (X (X (!(a U (a U b))))))) U (!(!a))),,SAT,0.0025,SAT,0.0631,SAT,0.0077
+random future,(X (!((b W (!(!b))) W (X ((X a) W (b U b)))))),,SAT,0.0041,SAT,0.6521,SAT,0.0119
+random future,(!((a W (X b)) W (!(!(X ((a W a) U (X a))))))),,SAT,0.0027,SAT,0.1458,SAT,0.0075
+random future,(a W (!(X (((X b) U a) U (!(X (b U (X a)))))))),,SAT,0.0029,SAT,0.3730,SAT,0.0086
+random future,(a W (X (!(X (((a W a) W b) W (!(b W b))))))),,SAT,0.0025,SAT,0.0176,SAT,0.0061
+random future,(X ((!b) U (((!(X (!a))) U (b W a)) U (X b)))),,SAT,0.0024,SAT,3.4797,SAT,0.0074
+random future,((!(X ((!a) U ((!(X a)) U a)))) W (!(b U b))),,SAT,0.0028,SAT,0.0174,SAT,0.0066
+random future,(b W (((!a) U (!(X (X (!b))))) U (!(a W b)))),,SAT,0.0034,SAT,3.7770,SAT,0.0203
+random future,(((!((X (!b)) U a)) U (a W (!a))) W (a W a)),,UNSAT,0.0041,SAT,0.0187,SAT,0.0139
+random future,(a W (X (!(X (!((a W b) W ((!(X b)) W a))))))),,SAT,0.0074,TIMEOUT,,SAT,0.0764
+random future,(((!b) W a) U ((a U (X a)) U ((!a) W (!b)))),,SAT,0.0054,SAT,85.6318,SAT,0.0116
+random future,((X (a W ((X (!(!a))) U (X b)))) W (X (!(X b)))),,SAT,0.0031,SAT,0.4346,SAT,0.0114
+random future,(!(((!(X (a U b))) W (!a)) U ((!b) U (!a)))),,SAT,0.0027,SAT,0.2481,SAT,0.0078
+random future,(!(((!(a W a)) U b) U ((a W b) U (a W a)))),,SAT,0.0034,SAT,0.3024,SAT,0.0087
+random future,((((a W a) W a) W (!a)) U ((a W (X b)) U b)),,SAT,0.0044,TIMEOUT,,SAT,0.0271
+random future,((!a) U ((X (!(X b))) U (((X b) U a) U (X a)))),,SAT,0.0045,SAT,31.7926,SAT,0.0128
+random future,(!((X b) W ((!(a W (X a))) W ((b U a) U b)))),,SAT,0.0056,SAT,7.0525,SAT,0.0154
+random future,((X b) W (!(((X (b W a)) W (b U (X b))) U b))),,SAT,0.0044,SAT,18.7723,SAT,0.0181
+random future,((((X (!(!b))) U (a W a)) U b) U (X (b W a))),,SAT,0.0031,SAT,10.4759,SAT,0.0134
+random future,(X ((X (X b)) W ((b W (X (X (X b)))) U (a U b)))),,SAT,0.0059,TIMEOUT,,SAT,0.3273
+random future,(((!b) W (!a)) U (((b U (a U b)) W b) W a)),,SAT,0.0033,TIMEOUT,,SAT,0.0221
+random future,((!((b U (!b)) W b)) W (!(!(!(!(b W a)))))),,SAT,0.0025,SAT,110.4704,SAT,0.0083
+random future,((X (X (!a))) U (!(a W (b W (!(!(X (X a)))))))),,SAT,0.0045,SAT,0.0546,SAT,0.0136
+random future,(X (X (!(!((a W (X (!(X ((!b) U a))))) U b))))),,SAT,0.0032,SAT,0.2729,SAT,0.0086
+random future,(((b U b) W ((!b) U (a W a))) U (!(b W a))),,UNSAT,0.0056,UNSAT,1.6856,UNSAT,0.0132
+random future,((((b W a) W a) U (X a)) W (!(!((X a) W b)))),,SAT,0.0040,TIMEOUT,,SAT,0.3457
+random future,((a U (!a)) W ((!b) U (X (a U ((X a) U b))))),,SAT,0.0034,SAT,34.6618,SAT,0.0216
+random future,((X (X (!((X (X (!a))) W b)))) W (X (b W (X b)))),,SAT,0.0043,SAT,0.8156,SAT,0.0129
+random future,(!((X ((!(X (!b))) W (X (X (!a))))) U (!(!b)))),,SAT,0.0025,SAT,0.0144,SAT,0.0067
+random future,(!(X (((b W (b W b)) U (X (a U a))) W (!a)))),,SAT,0.0025,SAT,0.0650,SAT,0.0065
+random future,(X ((b U (a W a)) W (!((!(!(X (!b)))) W b)))),,SAT,0.0026,SAT,0.0466,SAT,0.0074
+random future,((X (!(X ((!(b W a)) U (X (a U (!b))))))) W a),,SAT,0.0037,SAT,4.8181,SAT,0.0139
+random future,((((a U (X b)) U (!a)) W (a U b)) U (b U a)),,SAT,0.0057,TIMEOUT,,SAT,0.0450
+random future,(((!(!b)) U (b U b)) W ((b W (X b)) W (X a))),,SAT,0.0044,TIMEOUT,,SAT,0.3315
+random future,(((X ((!b) W (!b))) W (X a)) U (a U (!(X a)))),,SAT,0.0026,SAT,28.2724,SAT,0.0080
+random future,(X ((X (!b)) U (X (b U ((!a) W (b U (X a))))))),,SAT,0.0024,SAT,19.5441,SAT,0.0072
+random future,(X ((!a) W (X (X ((a U b) U ((X (!b)) W a)))))),,SAT,0.0049,SAT,26.3809,SAT,0.0288
+random future,((((a W b) W (X a)) W (b W b)) U (!(a W a))),,SAT,0.0099,TIMEOUT,,SAT,0.3731
+random future,(X (!(b W ((!((X a) W a)) U ((X b) W (X a)))))),,UNSAT,0.0030,TIMEOUT,,UNSAT,0.0074
+random future,((!((X (b W ((X b) W b))) W a)) U ((X b) U b)),,SAT,0.0055,SAT,43.4598,SAT,0.0080
+random future,(((!(X (X b))) U b) U ((X (a U (X a))) W (!b))),,SAT,0.0034,SAT,3.2098,SAT,0.0075
+random future,((X (((!b) W a) W (!(a W (!a))))) U (X (!b))),,SAT,0.0028,SAT,0.0055,SAT,0.0062
+random future,(X (((!b) W a) W ((((a U b) U a) U a) U a))),,SAT,0.0044,TIMEOUT,,SAT,0.1728
+random future,(X ((!b) W (!((X b) W (((X (!a)) W a) U a))))),,SAT,0.0054,SAT,72.8757,SAT,0.0174
+random future,((X a) U ((!a) W (((X (!a)) U (!a)) W (!a)))),,UNSAT,0.0054,UNSAT,0.0998,UNSAT,0.0089
+random future,((!(a W ((X b) U ((X b) U b)))) W (b W (!a))),,SAT,0.0055,SAT,26.5612,SAT,0.0271
+random future,(((b U a) W (X (a W b))) U (!((b U b) U a))),,SAT,0.0038,SAT,5.1404,SAT,0.0132
+random future,((!(b W b)) U (!(((!(X a)) W (!a)) W (X b)))),,SAT,0.0047,SAT,0.3009,SAT,0.0123
+random future,(!(a U (!((X (b W a)) U ((b W (X b)) U b))))),,SAT,0.0063,SAT,96.0098,SAT,0.0550
+random future,((b W b) W ((a U b) W ((b W a) U (X (!a))))),,SAT,0.0042,TIMEOUT,,SAT,11.3869
+random future,(((a W (X a)) U (!b)) U (X (b W (b U (!a))))),,SAT,0.0045,SAT,108.8823,SAT,0.0157
+random future,((a U ((X b) W b)) W (a W ((!b) U (a U b)))),,SAT,0.0030,TIMEOUT,,SAT,0.4966
+random future,(X (!((!((b W b) W (!(b U a)))) U (X (X b))))),,SAT,0.0036,SAT,30.5304,SAT,0.0087
+random future,((X (X (!((X b) U ((X (!a)) W b))))) U (a W a)),,SAT,0.0037,SAT,0.7342,SAT,0.0091
+random future,(!((((X b) U (!a)) W b) U ((!a) U (X (!b))))),,SAT,0.0024,SAT,0.0038,SAT,0.0065
+random future,((X (((X b) U a) U (X b))) U ((!a) W (b W b))),,SAT,0.0027,SAT,9.3165,SAT,0.0129
+random future,((!(X (a U (X (X b))))) U (X ((X b) W (!(X b))))),,SAT,0.0039,SAT,0.0101,SAT,0.0115
+random future,(!(!((a W b) U (a U (b U (a U (!(X a)))))))),,SAT,0.0046,SAT,19.6598,SAT,0.0130
+random future,(X (X (((a W a) W (X b)) U (((X a) U b) W b)))),,SAT,0.0034,TIMEOUT,,SAT,0.0266
+random future,(a W (X (X (a U ((!b) W (X ((a U b) W a))))))),,SAT,0.0117,TIMEOUT,,SAT,0.1709
+random future,((((!a) U (b U a)) U a) W ((X b) W (X (!b)))),,UNSAT,0.0047,SAT,59.7339,SAT,0.0135
+random future,(a W ((a W b) U (X ((b U a) W (b W (!a)))))),,SAT,0.0057,TIMEOUT,,SAT,0.4440
+random future,((!a) W (X ((((!a) U a) U (X a)) W (b U a)))),,SAT,0.0029,SAT,34.1266,SAT,0.0250
+random future,((b U (!(!(X a)))) U (a W (!((X (!b)) U a)))),,SAT,0.0031,SAT,0.9466,SAT,0.0099
+random future,((a W a) W ((!((!(!(!a))) U a)) U (b U b))),,SAT,0.0025,SAT,0.0294,SAT,0.0085
+random future,(((X b) U (!((a W b) U a))) W ((a U a) U a)),,SAT,0.0029,SAT,0.3861,SAT,0.0109
+random future,(X (((((a W b) U b) W (b U b)) U (!(a U (a W (X b))))) U b)),,SAT,0.0061,TIMEOUT,,SAT,0.8053
+random future,(((X ((b W b) U (!b))) W (!(!(b U (X (b U b)))))) U (b U a)),,SAT,0.0068,TIMEOUT,,SAT,0.0665
+random future,(X (!(((X (X ((!(!b)) W b))) W (X a)) U ((X b) W ((!a) W a))))),,UNSAT,0.0022,UNSAT,23.2850,UNSAT,0.0069
+random future,(!(!(((X ((X (b U a)) W (!((X b) W a)))) W a) W (!(a U b))))),,SAT,0.0062,SAT,69.5621,SAT,0.0576
+random future,(X (((X ((a U (X (!a))) U a)) W (a W a)) W (X (a W (a U b))))),,SAT,0.0053,TIMEOUT,,SAT,1.4955
+random future,(!(((!a) W (b U (!((((X b) U b) W (!a)) U (!b))))) W (!a))),,SAT,0.0043,SAT,86.0617,SAT,0.0231
+random future,(((X ((b W b) W b)) U ((X (a U a)) U (X b))) U ((X b) W (X b))),,SAT,0.0047,TIMEOUT,,SAT,0.0630
+random future,(X ((!(X b)) W (X ((b W b) W ((b U (a W a)) U (b U (!b))))))),,SAT,0.0042,TIMEOUT,,SAT,3.0121
+random future,((b W ((b W b) U (!a))) W (X (((!b) W ((a W a) U a)) U a))),,SAT,0.0109,TIMEOUT,,SAT,2.7554
+random future,(((X (!(b U b))) U (X a)) W (X (!((X (b U (b W b))) U (X b))))),,SAT,0.0028,TIMEOUT,,SAT,0.0722
+random future,((!((b W b) W ((!a) W (X a)))) U (!((b W a) U ((X a) W b)))),,UNSAT,0.0034,TIMEOUT,,UNSAT,0.0148
+random future,(!((X (!((X a) U ((X (!b)) W ((!(!(b U a))) W (!b)))))) U b)),,SAT,0.0026,TIMEOUT,,SAT,0.0104
+random future,(X (X (((a W (X (a W b))) U b) U ((b W (!a)) W (!(b W b)))))),,SAT,0.0090,TIMEOUT,,SAT,0.0754
+random future,((!a) W (!(((X a) U a) W (!((X (X (!(X b)))) W ((!a) W a)))))),,SAT,0.0024,SAT,55.6788,SAT,0.0089
+random future,(a U (((!(b W a)) U b) U (X (!((!a) U ((!(b U b)) W b)))))),,UNSAT,0.0025,UNSAT,0.2823,UNSAT,0.0077
+random future,(!(a W ((X ((X a) U b)) W ((b W (!b)) U (a W (b U (X b))))))),,UNSAT,0.0117,TIMEOUT,,UNSAT,0.0414
+random future,(X (!(X ((((X (!b)) W (!b)) U ((!(!b)) U (!b))) W (X (X a)))))),,SAT,0.0029,SAT,43.2170,SAT,0.0084
+random future,((X (a W (!a))) U (b U (!(((!b) W (X (b W a))) U (b W b))))),,SAT,0.0027,SAT,1.0993,SAT,0.0074
+random future,(X (!(X (((X (!((!(X a)) W a))) W (X (X a))) U (X (b W (X a))))))),,SAT,0.0028,SAT,1.9169,SAT,0.0076
+random future,((!(!(b U (X (!(X a)))))) U (!(!(X (a U ((b W a) U (X a))))))),,SAT,0.0054,TIMEOUT,,SAT,0.0101
+random future,((((a W a) W b) U b) U (((!(!b)) W (X a)) U (X ((X a) U a)))),,SAT,0.0136,TIMEOUT,,SAT,0.1229
+random future,(!(((X b) W (!(a U ((X b) W a)))) U (!(X ((!(X b)) W (X a)))))),,SAT,0.0043,TIMEOUT,,SAT,0.0296
+random future,(X ((!(((!(!(!b))) U (!a)) W (!b))) U ((X (X b)) U (X (X a))))),,SAT,0.0045,SAT,19.6748,SAT,0.0141
+random future,(a U (X (!((((X b) U (X a)) U (((X b) U b) W a)) U (a U a))))),,SAT,0.0033,TIMEOUT,,SAT,0.0151
+random future,((X a) U ((a U (a U b)) U (((b W (X b)) W (X a)) W (a W b)))),,SAT,0.0099,TIMEOUT,,SAT,2.4998
+random future,(X (!(X (!((a U b) U ((b U (!b)) W ((X (X a)) W (X (!a))))))))),,SAT,0.0038,SAT,68.6459,SAT,0.0153
+random future,(b W ((b U b) U (!((((X b) U b) W ((!(b W a)) W b)) U b)))),,SAT,0.0078,TIMEOUT,,SAT,0.3229
+random future,(X (!(!(!(!(X ((b U (b W b)) U (X (!(X (a U (a U b)))))))))))),,SAT,0.0024,SAT,25.2571,SAT,0.0074
+random future,((X ((X (X b)) W (X a))) W ((b U (!(X b))) U (a U ((!b) U b)))),,SAT,0.0043,TIMEOUT,,SAT,0.7308
+random future,((!(!b)) W ((b W ((!a) W (X b))) U (X (X (b U (X (!(!b)))))))),,SAT,0.0096,TIMEOUT,,SAT,22.4833
+random future,((X (X (X (!(X (a W (a U a))))))) U ((!(b W b)) U (X (a W a)))),,SAT,0.0050,TIMEOUT,,SAT,0.0118
+random future,((X (((!((b W b) U b)) W b) U (X a))) W ((!(!(X (!a)))) U a)),,SAT,0.0036,SAT,59.7883,SAT,0.0262
+random future,(((b W a) W a) U (X ((a U ((!a) U a)) U ((X b) W (b W b))))),,SAT,0.0048,TIMEOUT,,SAT,0.1417
+random future,((!b) W ((b U a) W ((b W ((X a) W (!(!(X (a W a)))))) U b))),,SAT,0.0144,TIMEOUT,,ERROR,18.3769
+random future,(((!b) W ((b W b) W ((!(!b)) W ((b U (b U a)) W b)))) U a),,SAT,0.0198,TIMEOUT,,ERROR,4.6349
+random future,(X (((b W (X (X b))) U (X (X (!b)))) U ((!(b W (X (X a)))) U a))),,SAT,0.0468,TIMEOUT,,SAT,0.0608
+random future,(X (((X ((X (!((!(X (!b))) U a))) U (X a))) W (!(!b))) U (!b))),,SAT,0.0047,SAT,9.8386,SAT,0.0206
+random future,(X (!((!(!((!a) U (b W ((((!a) U b) U b) W (X b)))))) U b))),,SAT,0.0041,TIMEOUT,,SAT,0.0246
+random future,(((X (!b)) W (a W (X (X a)))) W (X ((X a) U ((!(!a)) U (!a))))),,SAT,0.0181,TIMEOUT,,SAT,0.8674
+random future,(((!(X (!b))) U (!a)) W (b W (X ((X (a W (b W (X b)))) W a)))),,SAT,0.0059,TIMEOUT,,SAT,1.0656
+random future,(X (X (((a W b) W ((((X a) U (b U a)) W a) U (!(X b)))) W a))),,SAT,0.0091,TIMEOUT,,ERROR,38.0717
+random future,(!((X (!((!(!(X (((b U b) W ((!b) U a)) U b)))) U b))) W a)),,SAT,0.0052,SAT,79.2628,SAT,0.0213
+random future,((!b) U (X (b U ((a U (X (X b))) W (!(X ((b W b) U (!a)))))))),,SAT,0.0039,TIMEOUT,,SAT,0.0175
+random future,(b W (a U (!(b U ((!((!b) U ((!(X a)) W b))) U (!(!b))))))),,SAT,0.0036,TIMEOUT,,SAT,0.0533
+random future,((!(b U ((!b) U (!(X ((X b) W b)))))) W (X (X ((b U b) U a)))),,SAT,0.0200,TIMEOUT,,SAT,0.0921
+random future,(X ((((X b) W ((X a) U b)) W (!(X (a W a)))) U (!(X (b W a))))),,UNSAT,0.0077,TIMEOUT,,UNSAT,0.1023
+random future,((!(a W (b U (b W b)))) W (((!((b U a) U a)) W a) W (!b))),,SAT,0.0031,TIMEOUT,,SAT,2.4082
+random future,(((b W (!b)) W (b U a)) U ((X (X b)) U ((a W (a U b)) U b))),,SAT,0.0046,TIMEOUT,,SAT,0.0092
+random future,((b W (!(!b))) U ((X (a U (X a))) U (((!(b U b)) W a) U a))),,SAT,0.0050,TIMEOUT,,SAT,0.0174
+random future,((((b U a) W (!(b U a))) W (X a)) U (!(!(a U (!(!(X a))))))),,SAT,0.0044,SAT,23.2881,SAT,0.0124
+random future,(X ((b W (b U b)) U ((X (X (b W ((X (!a)) W (a U b))))) W a))),,SAT,0.0061,TIMEOUT,,SAT,1.4092
+random future,((!a) U ((X b) U ((((X a) W a) U b) U (X (X ((!a) U (X a))))))),,SAT,0.0070,TIMEOUT,,SAT,0.0127
+random future,(((b W ((!(a U b)) W a)) W ((!a) W (!((!b) U a)))) U (X b)),,SAT,0.0146,TIMEOUT,,SAT,0.7303
+random future,(X (!((a U (X (!(!b)))) U ((((!a) W (!a)) U b) W (!(X b)))))),,UNSAT,0.0026,UNSAT,84.6221,UNSAT,0.0069
+random future,((!(!(!a))) U (X ((((X b) W b) W ((!b) W a)) U (b U (X a))))),,SAT,0.0063,TIMEOUT,,SAT,0.0542
+random future,(!(X (!((((!a) W (b W a)) U ((X a) U (!b))) W (X (!(!b))))))),,SAT,0.0068,TIMEOUT,,SAT,0.3132
+random future,((!((!b) W (!((!a) U (!(a W b)))))) U ((b W a) U (X (!a)))),,SAT,0.0059,SAT,40.9155,SAT,0.0131
+random future,((((((b W a) W b) U (!b)) W (X (X ((X a) W a)))) W (!a)) W b),,SAT,0.4227,TIMEOUT,,ERROR,28.5100
+random future,(!((X ((X a) U (a W (!(a U a))))) U (!(!(X ((!a) W (!b))))))),,UNSAT,0.0024,UNSAT,33.2761,UNSAT,0.0082
+random future,((X ((a W (b U a)) W (!(X (X (b W (!a))))))) W (X (!(a W a)))),,SAT,0.0107,TIMEOUT,,SAT,0.0923
+random future,(X (b W (!(!(((!(!(!b))) U (X (!b))) W (((X b) W a) U b)))))),,SAT,0.0040,TIMEOUT,,SAT,1.3626
+random future,((X (X a)) W ((((X a) W b) U b) W (X (!((X (!a)) W (a U b)))))),,SAT,0.0072,TIMEOUT,,SAT,0.2670
+random future,((X (X ((X (X ((!b) W (X a)))) W ((X (!(X b))) W (a W b))))) W a),,SAT,0.0611,TIMEOUT,,SAT,46.4918
+random future,(!(!(((b U (X a)) W a) W (X (X (X ((b U b) W (a W (X a))))))))),,SAT,0.1693,TIMEOUT,,SAT,6.9657
+random future,((!((!((a U ((X (a W b)) W b)) U b)) W (X a))) U (b W (X a))),,SAT,0.0101,TIMEOUT,,SAT,0.1963
+random future,(X (X ((X (((X a) W (a W (X a))) W (X (X a)))) U (X (X (b U b)))))),,SAT,0.0043,TIMEOUT,,SAT,0.3555
+random future,((X (b W (!(X b)))) W (a U ((!b) W ((b U (!a)) W (b U b))))),,SAT,0.0044,ERROR,118.2823,ERROR,7.4557
+random future,((b W ((((X a) U (!a)) W (b U b)) U a)) W ((a W b) W (!a))),,SAT,0.0111,ERROR,0.0318,ERROR,
+random future,(X (X (X (!(!(X (!((a W a) U ((b W (b W (X a))) W (X a)))))))))),,UNSAT,0.0024,TIMEOUT,,UNSAT,39.4543
+random future,(b U (((b U a) W ((((!a) W a) U (!b)) U a)) U ((!a) U a))),,SAT,0.0044,TIMEOUT,,SAT,0.1065
+random future,(((X (((!a) W a) U b)) W (!b)) W ((b U (X a)) W ((!a) U a))),,SAT,0.0058,TIMEOUT,,SAT,0.5018
+random future,(((!(a W b)) W a) W (!(!((X (!b)) U (X (b U ((!b) U a))))))),,SAT,0.0053,TIMEOUT,,SAT,0.0863
+random future,((!a) U ((!((b U ((!a) U (!a))) W (b W (X a)))) U (a W b))),,SAT,0.0021,SAT,64.8245,SAT,0.0047
+random future,((((!a) W (b U b)) U (b W ((X b) W (!(a U a))))) W (b U a)),,SAT,0.0139,TIMEOUT,,ERROR,17.9000
+random future,(X (!((a W b) W (b U ((X (!a)) U (b U (!(a U (a W b))))))))),,UNSAT,0.0064,TIMEOUT,,ERROR,0.0320
+random future,((a W (!b)) W ((a W (a U a)) W (X (X ((a U b) U (a W a)))))),,SAT,0.0313,TIMEOUT,,ERROR,61.8768
+random future,((b W a) W (X (X ((X (X (!(b W b)))) W ((X b) U (a W (!a))))))),,UNSAT,0.0038,TIMEOUT,,SAT,0.5332
+random future,(!((((X a) W (!b)) W (!(!((!a) U (!(X (X (X b)))))))) U (!a))),,SAT,0.0030,SAT,45.8533,SAT,0.0125
+random future,((X (((X a) W a) U (X a))) W (!((b W a) U ((X a) U (a W b))))),,SAT,0.0235,TIMEOUT,,SAT,0.2863
+random future,(!(((a W (X a)) W (X b)) W (((X b) W (!(a U (!b)))) W (X a)))),,UNSAT,0.0056,TIMEOUT,,UNSAT,0.0243
+random future,(((X ((b U (X (a W b))) U (!a))) U (X ((!a) U b))) U (b W a)),,SAT,0.0061,TIMEOUT,,SAT,0.1764
+random future,(((X b) U (!((!(X a)) W ((X ((X a) W b)) W (X (X a)))))) W (!b)),,SAT,0.0029,SAT,40.4398,SAT,0.0185
+random future,((X ((a W a) W a)) U (!((X (!((!(X a)) W (b W b)))) W (!a)))),,SAT,0.0026,TIMEOUT,,SAT,0.0158
+random future,((b U a) W (X ((b W (b W a)) U ((X ((X b) W b)) W (b W a))))),,SAT,0.0151,TIMEOUT,,SAT,56.2375
+random future,(X ((!(X b)) W ((a W (!(a W b))) W (((!b) W b) W (a U a))))),,SAT,0.0034,SAT,27.8098,SAT,0.0140
+random future,(X ((X (X (X ((!(!a)) U ((X (!(!(!(!a))))) U b))))) U (a W b))),,SAT,0.0030,SAT,7.2766,SAT,0.0111
+random future,(X ((X a) W (((a U a) W (X b)) W (X (((a W b) W b) W (X a)))))),,SAT,0.0206,TIMEOUT,,ERROR,14.7284
+random future,((X ((!(X b)) W ((!a) U ((!b) U a)))) U ((!a) U (a U (X a)))),,SAT,0.0048,TIMEOUT,,SAT,0.0450
+random future,((((!((!(b W b)) W (!a))) U ((!b) W (X b))) U a) U (b U a)),,SAT,0.0053,TIMEOUT,,SAT,0.4997
+random future,(((b U a) U a) W (((!(X (!(b W a)))) W (a W b)) W (b W b))),,SAT,0.0060,ERROR,94.4112,ERROR,14.2613
+random future,(((!a) U (X (X (b W (((!b) U a) W (X a)))))) U ((a W b) U b)),,SAT,0.0543,ERROR,0.0499,ERROR,0.0238
+random future,((!(!(X (!(X (X ((b W ((!b) W a)) W (X b)))))))) U (a W (!a))),,UNSAT,0.0036,SAT,1.3361,SAT,0.0147
+random future,((a W b) U ((!(X (X (X (!a))))) U ((X a) W (!((a W a) W a))))),,SAT,0.0034,TIMEOUT,,SAT,0.0187
+random future,(X ((b U (X (X (!b)))) W ((X ((!(!a)) U b)) U ((b U a) W b)))),,SAT,0.0031,TIMEOUT,,SAT,0.6892
+random future,((a W ((b U b) W (b W a))) W ((X b) U (X (!((X a) W (!b)))))),,SAT,0.0224,ERROR,55.9648,ERROR,5.0835
+random future,(X ((!(((X (X a)) W (!(b W a))) W (X (a U b)))) U (!(b W a)))),,UNSAT,0.0049,ERROR,0.0352,UNSAT,0.0195
+random future,(((X a) W a) U ((!((X b) W ((b W (X a)) W b))) W (a W (!a)))),,UNSAT,0.0032,SAT,0.0329,SAT,0.0131
+random future,((X (X (((!(b W a)) U ((!b) W (X b))) U a))) U (!((X a) W b))),,SAT,0.0106,TIMEOUT,,SAT,0.0291
+random future,(X (X (!(!(X (X (!((!((X b) U ((X b) U a))) W (X (!(X b))))))))))),,SAT,0.0036,SAT,18.8412,SAT,0.0136
+random future,(!((!b) W (((b W a) U (!a)) W ((b W b) U (!(!(a U a))))))),,UNSAT,0.0027,UNSAT,0.3298,UNSAT,0.0086
+random future,((a U b) W b),,SAT,0.0018,SAT,0.0052,SAT,0.0065
+random future,((a W a) W b),,SAT,0.0018,SAT,0.0038,SAT,0.0066
+random future,(!(!(!(X b)))),,UNSAT,0.0033,UNSAT,0.0037,UNSAT,0.0111
+random future,((!a) W (X c)),,SAT,0.0019,SAT,0.0032,SAT,0.0066
+random future,(!((!a) W c)),,SAT,0.0033,SAT,0.0036,SAT,0.0112
+random future,(X (b W (!a))),,SAT,0.0018,SAT,0.0026,SAT,0.0061
+random future,((a W b) U b),,SAT,0.0018,SAT,0.0048,SAT,0.0070
+random future,((X c) U (!a)),,SAT,0.0033,SAT,0.0035,SAT,0.0108
+random future,((!c) U (X b)),,SAT,0.0032,SAT,0.0036,SAT,0.0109
+random future,(!((!b) U b)),,UNSAT,0.0017,UNSAT,0.0021,UNSAT,0.0059
+random future,((!(!c)) U b),,SAT,0.0034,SAT,0.0033,SAT,0.0108
+random future,(!((!b) W a)),,SAT,0.0032,SAT,0.0031,SAT,0.0114
+random future,((!a) W (X b)),,SAT,0.0019,SAT,0.0030,SAT,0.0069
+random future,(!(!(b U a))),,SAT,0.0033,SAT,0.0032,SAT,0.0111
+random future,((X a) W (!c)),,SAT,0.0018,SAT,0.0028,SAT,0.0068
+random future,(c W (b U a)),,SAT,0.0018,SAT,0.0046,SAT,0.0073
+random future,(a U (a W b)),,SAT,0.0018,SAT,0.0040,SAT,0.0066
+random future,((b U b) U c),,SAT,0.0034,SAT,0.0040,SAT,0.0114
+random future,(a U (!(X c))),,SAT,0.0032,SAT,0.0039,SAT,0.0113
+random future,((!c) U (!a)),,SAT,0.0033,SAT,0.0042,SAT,0.0121
+random future,((c U b) W a),,SAT,0.0019,SAT,0.0037,SAT,0.0071
+random future,((!b) U (X c)),,SAT,0.0033,SAT,0.0043,SAT,0.0113
+random future,((!b) W (!b)),,UNSAT,0.0017,UNSAT,0.0041,UNSAT,0.0106
+random future,((c U c) U a),,SAT,0.0033,SAT,0.0042,SAT,0.0114
+random future,(X (c W (X a))),,SAT,0.0018,SAT,0.0030,SAT,0.0062
+random future,((!b) W (X b)),,SAT,0.0019,SAT,0.0032,SAT,0.0062
+random future,(X (b W (X b))),,SAT,0.0019,SAT,0.0030,SAT,0.0060
+random future,(!((X c) U a)),,SAT,0.0017,SAT,0.0025,SAT,0.0060
+random future,(a W (b W c)),,SAT,0.0018,SAT,0.0176,SAT,0.0080
+random future,(X (c W (!a))),,SAT,0.0017,SAT,0.0030,SAT,0.0064
+random future,(X ((X c) U b)),,SAT,0.0033,SAT,0.0046,SAT,0.0113
+random future,(b U (c W a)),,SAT,0.0018,SAT,0.0045,SAT,0.0063
+random future,((X c) U (!c)),,UNSAT,0.0032,UNSAT,0.0038,UNSAT,0.0118
+random future,((!(!b)) W b),,SAT,0.0018,SAT,0.0034,SAT,0.0116
+random future,(X (!(b W c))),,UNSAT,0.0034,UNSAT,0.0037,UNSAT,0.0121
+random future,(X ((X c) U a)),,SAT,0.0033,SAT,0.0038,SAT,0.0119
+random future,(X (!(X (X a)))),,UNSAT,0.0033,UNSAT,0.0040,UNSAT,0.0116
+random future,((!b) W (X a)),,SAT,0.0018,SAT,0.0029,SAT,0.0067
+random future,((!(!b)) W a),,SAT,0.0018,SAT,0.0022,SAT,0.0073
+random future,(!(X (a U b))),,SAT,0.0018,SAT,0.0025,SAT,0.0073
+random future,((X c) W (!b)),,SAT,0.0017,SAT,0.0038,SAT,0.0062
+random future,(c U (b U c)),,SAT,0.0033,SAT,0.0045,SAT,0.0122
+random future,(c U (c W a)),,SAT,0.0018,SAT,0.0038,SAT,0.0072
+random future,(X (c W (X c))),,SAT,0.0018,SAT,0.0025,SAT,0.0067
+random future,(b W (a U a)),,SAT,0.0018,SAT,0.0034,SAT,0.0066
+random future,(c W (X (!b))),,SAT,0.0019,SAT,0.0031,SAT,0.0069
+random future,(!((!a) W b)),,SAT,0.0033,SAT,0.0046,SAT,0.0115
+random future,(!(c W (X b))),,SAT,0.0032,SAT,0.0048,SAT,0.0115
+random future,((X (!a)) U a),,SAT,0.0034,SAT,0.0040,SAT,0.0117
+random future,(!((!c) U c)),,UNSAT,0.0016,UNSAT,0.0024,UNSAT,0.0058
+random future,(X ((!c) U b)),,SAT,0.0032,SAT,0.0039,SAT,0.0107
+random future,(!((X b) W b)),,UNSAT,0.0031,UNSAT,0.0041,UNSAT,0.0111
+random future,((b W c) U c),,SAT,0.0018,SAT,0.0052,SAT,0.0067
+random future,(b U (X (X a))),,SAT,0.0033,SAT,0.0054,SAT,0.0107
+random future,(!(b U (X c))),,SAT,0.0019,SAT,0.0027,SAT,0.0060
+random future,(X (!(b U a))),,SAT,0.0017,SAT,0.0027,SAT,0.0057
+random future,((a U a) W c),,SAT,0.0020,SAT,0.0031,SAT,0.0061
+random future,((X a) U (X c)),,SAT,0.0034,SAT,0.0040,SAT,0.0105
+random future,((c W a) W b),,SAT,0.0018,SAT,0.0082,SAT,0.0070
+random future,((X (!b)) U c),,SAT,0.0031,SAT,0.0047,SAT,0.0108
+random future,((X (X c)) U c),,SAT,0.0032,SAT,0.0043,SAT,0.0058
+random future,(b U (!(X a))),,SAT,0.0031,SAT,0.0045,SAT,0.0106
+random future,(!(X (b U c))),,SAT,0.0018,SAT,0.0026,SAT,0.0059
+random future,(!(c W (!b))),,SAT,0.0031,SAT,0.0039,SAT,0.0108
+random future,(!(X (c W c))),,UNSAT,0.0018,UNSAT,0.0044,UNSAT,0.0059
+random future,(!(X (X (X c)))),,UNSAT,0.0032,UNSAT,0.0042,UNSAT,0.0110
+random future,((c W b) W c),,SAT,0.0018,SAT,0.0057,SAT,0.0066
+random future,(!((X a) W c)),,SAT,0.0031,SAT,0.0037,SAT,0.0118
+random future,((a U a) W b),,SAT,0.0018,SAT,0.0031,SAT,0.0062
+random future,((!a) W (!c)),,UNSAT,0.0031,SAT,0.0042,SAT,0.0061
+random future,(!((!c) W b)),,SAT,0.0032,SAT,0.0036,SAT,0.0108
+random future,((X b) U (!b)),,UNSAT,0.0031,UNSAT,0.0033,UNSAT,0.0106
+random future,(b U (!(X c))),,SAT,0.0033,SAT,0.0033,SAT,0.0104
+random future,((b U b) W c),,SAT,0.0019,SAT,0.0034,SAT,0.0065
+random future,((X c) U (X c)),,SAT,0.0020,SAT,0.0034,SAT,0.0059
+random future,(c U (!(!b))),,SAT,0.0033,SAT,0.0034,SAT,0.0108
+random future,((!c) W (X b)),,SAT,0.0019,SAT,0.0028,SAT,0.0060
+random future,((X b) U (!c)),,SAT,0.0033,SAT,0.0033,SAT,0.0108
+random future,((c W c) U c),,SAT,0.0017,SAT,0.0034,SAT,0.0111
+random future,(!((!a) W (X ((!c) W (X c))))),,SAT,0.0032,SAT,0.0039,SAT,0.0114
+random future,((c U a) U (X (a U (X (!c))))),,SAT,0.0034,SAT,0.0297,SAT,0.0117
+random future,(((!c) W a) U ((c W c) U c)),,SAT,0.0034,SAT,0.0514,SAT,0.0127
+random future,((((X a) W a) U (X c)) W (!a)),,SAT,0.0025,SAT,1.2840,SAT,0.0121
+random future,(a W (!((X a) U (!(a W c))))),,SAT,0.0021,SAT,1.4058,SAT,0.0129
+random future,((X c) W ((!(X (c W b))) U b)),,SAT,0.0019,SAT,0.0141,SAT,0.0077
+random future,(!(!(((X a) U c) U (a W b)))),,SAT,0.0019,SAT,0.0598,SAT,0.0078
+random future,(X (((!(!(X a))) U (X c)) U a)),,SAT,0.0034,SAT,0.0041,SAT,0.0074
+random future,((X a) U ((b W (!c)) U (X b))),,SAT,0.0023,SAT,0.1686,SAT,0.0074
+random future,((X c) W (b U (c U (!(X b))))),,SAT,0.0022,SAT,0.2106,SAT,0.0106
+random future,(X (X ((a W (!a)) W (!(!a))))),,SAT,0.0032,SAT,0.0040,SAT,0.0113
+random future,(X ((!c) U (!(X ((X c) U b))))),,SAT,0.0021,SAT,0.0031,SAT,0.0059
+random future,(!(((X a) W a) W (!(a U c)))),,SAT,0.0036,SAT,0.0044,SAT,0.0111
+random future,(X (((!a) U (a W a)) W (!c))),,SAT,0.0021,SAT,0.0043,SAT,0.0067
+random future,(!(X ((X (b U (!(X b)))) W a))),,SAT,0.0019,SAT,0.0033,SAT,0.0060
+random future,((a W b) U ((a U a) U (!c))),,SAT,0.0022,SAT,0.4953,SAT,0.0079
+random future,((b U c) U (c U ((!a) U c))),,SAT,0.0034,SAT,0.0593,SAT,0.0116
+random future,(!((X (!(X a))) W (c W (X b)))),,SAT,0.0038,SAT,0.0421,SAT,0.0117
+random future,(X ((c W ((b U b) W a)) U c)),,SAT,0.0042,SAT,89.9769,SAT,0.0448
+random future,(c U ((X a) U (a W (c W c)))),,SAT,0.0019,SAT,1.6908,SAT,0.0081
+random future,((a W a) U (((!a) U c) W a)),,SAT,0.0019,SAT,0.0240,SAT,0.0078
+random future,((!(c U (!(b W (X a))))) U c),,SAT,0.0025,SAT,1.8370,SAT,0.0120
+random future,((!(!a)) W (!(!(X (X (!c)))))),,SAT,0.0019,SAT,0.0056,SAT,0.0083
+random future,((b U (X ((!a) W a))) W (!b)),,UNSAT,0.0034,SAT,0.0038,SAT,0.0134
+random future,((!((c W c) U c)) W (b W c)),,SAT,0.0019,SAT,0.0276,SAT,0.0094
+random future,((X (c U a)) W ((X b) U (X c))),,SAT,0.0019,SAT,0.0212,SAT,0.0079
+random future,((X (X b)) W (X (!(X (X (X a)))))),,SAT,0.0020,SAT,0.0063,SAT,0.0078
+random future,((a W c) U (X (c W (c U a)))),,SAT,0.0020,SAT,2.8742,SAT,0.0095
+random future,((!(!(X (b U (!b))))) W (X c)),,SAT,0.0018,SAT,0.0025,SAT,0.0066
+random future,(!(!(!((a W (!c)) U (X b))))),,SAT,0.0021,SAT,0.0027,SAT,0.0063
+random future,((c W (b U c)) U (a U (X b))),,SAT,0.0040,SAT,3.4604,SAT,0.0092
+random future,(!((X (!(b W (c U b)))) U c)),,SAT,0.0018,SAT,0.0046,SAT,0.0065
+random future,((a U b) W (!((c U c) W c))),,SAT,0.0019,SAT,0.4040,SAT,0.0121
+random future,((a W (!a)) W ((!(!c)) W b)),,UNSAT,0.0031,SAT,0.0028,SAT,0.0116
+random future,((X c) W (a W ((!c) W (X c)))),,SAT,0.0025,SAT,30.9887,SAT,0.0461
+random future,((!(!c)) W (!((X (!b)) U a))),,SAT,0.0020,SAT,0.0145,SAT,0.0089
+random future,((!b) U ((!(X (a U a))) W a)),,SAT,0.0018,SAT,0.0064,SAT,0.0076
+random future,(X (!((!a) W ((c W a) W c)))),,UNSAT,0.0034,UNSAT,0.0054,UNSAT,0.0129
+random future,((X (c U c)) W (c U (!(!c)))),,SAT,0.0018,SAT,0.0034,SAT,0.0069
+random future,(((!c) W (!(a U c))) W (X a)),,SAT,0.0021,SAT,0.2156,SAT,0.0103
+random future,(((a W a) W (b U b)) W (X a)),,SAT,0.0024,SAT,3.2004,SAT,0.0186
+random future,((!(X c)) W ((c U b) W (!b))),,SAT,0.0020,SAT,0.0716,SAT,0.0105
+random future,(!((X (a W c)) U (c U (!a)))),,SAT,0.0018,SAT,0.0034,SAT,0.0071
+random future,(!(X ((X ((X c) W b)) W (X a)))),,SAT,0.0033,SAT,0.0075,SAT,0.0134
+random future,(c W ((a W a) U (X (c U b)))),,SAT,0.0020,SAT,1.0659,SAT,0.0131
+random future,(((!a) W (X (X c))) W (b W b)),,SAT,0.0033,SAT,3.3691,SAT,0.0189
+random future,(X ((X ((!c) U a)) U (!(!c)))),,SAT,0.0033,SAT,0.0036,SAT,0.0128
+random future,((X (!c)) W (X ((!(!c)) U b))),,SAT,0.0018,SAT,0.0023,SAT,0.0068
+random future,((!(c W ((X (!a)) W c))) W c),,SAT,0.0021,SAT,0.0146,SAT,0.0076
+random future,((X c) W ((X (!(b U a))) U c)),,SAT,0.0020,SAT,0.1211,SAT,0.0084
+random future,(X ((!b) W (((X b) W b) W a))),,SAT,0.0021,SAT,4.9700,SAT,0.0157
+random future,(((X b) W a) W ((X c) W (X a))),,SAT,0.0021,SAT,2.8664,SAT,0.0146
+random future,(((X (!(c U c))) W (!b)) W c),,SAT,0.0020,SAT,0.0270,SAT,0.0079
+random future,((!((!b) U (X b))) W (a U c)),,SAT,0.0019,SAT,0.0363,SAT,0.0081
+random future,(((c W a) W (c W (X c))) W a),,SAT,0.0036,TIMEOUT,,SAT,0.1141
+random future,((!c) W ((!(!b)) W (b W c))),,SAT,0.0021,SAT,26.0968,SAT,0.0591
+random future,(((a U b) W (b W a)) W (X c)),,SAT,0.0026,TIMEOUT,,SAT,0.0927
+random future,(!(!(((X c) U c) U (!(!c))))),,SAT,0.0018,SAT,28.1890,SAT,0.0077
+random future,((!((X a) U (c W b))) W (X a)),,SAT,0.0034,SAT,0.5932,SAT,0.0125
+random future,(X ((X (!((X c) W c))) U (!b))),,SAT,0.0033,SAT,0.0064,SAT,0.0127
+random future,(!(!(!((X a) U (!(a U b)))))),,SAT,0.0019,SAT,0.0034,SAT,0.0065
+random future,((X (X (!b))) U ((!(X c)) W a)),,SAT,0.0020,SAT,0.0902,SAT,0.0067
+random future,(((!b) U c) W ((!a) W (!c))),,SAT,0.0019,SAT,0.0828,SAT,0.0088
+random future,(X (b W (X (((X b) W a) U c)))),,SAT,0.0021,SAT,1.8071,SAT,0.0116
+random future,(a W ((c W (X (X c))) W (X c))),,SAT,0.0025,SAT,38.8908,SAT,0.0307
+random future,(X (X ((X (X c)) U ((!a) U c)))),,SAT,0.0033,SAT,0.0097,SAT,0.0128
+random future,(((c U a) U (X (!a))) U (!c)),,SAT,0.0035,SAT,0.0289,SAT,0.0123
+random future,(X (!(X (X ((X (a U b)) W c))))),,SAT,0.0018,SAT,0.0099,SAT,0.0061
+random future,(((X a) U (!c)) W (b W (!c))),,SAT,0.0019,SAT,0.3199,SAT,0.0095
+random future,((b U ((c W b) W (!b))) U b),,SAT,0.0022,SAT,0.5016,SAT,0.0117
+random future,((((X b) U (X b)) U (!c)) U b),,SAT,0.0033,SAT,0.0055,SAT,0.0064
+random future,((!(b W c)) W ((X (!c)) U c)),,SAT,0.0019,SAT,0.0053,SAT,0.0066
+random future,(((b U a) U c) U (!(X (!b)))),,SAT,0.0038,SAT,0.0847,SAT,0.0121
+random future,(c W ((c U (b U c)) W (X b))),,SAT,0.0023,SAT,37.9073,SAT,0.0329
+random future,(!(((X c) W (b W b)) U (X b))),,SAT,0.0019,SAT,0.0394,SAT,0.0076
+random future,(!((!(X (a U a))) U (b W a))),,UNSAT,0.0018,UNSAT,0.0022,UNSAT,0.0070
+random future,(X ((!(!(!(X (!a))))) U (!b))),,SAT,0.0032,SAT,0.0028,SAT,0.0113
+random future,(b U (!(X (!((X a) W (!c)))))),,SAT,0.0018,SAT,0.0092,SAT,0.0059
+random future,(!(X ((c U a) W ((X c) W c)))),,UNSAT,0.0034,UNSAT,0.0122,UNSAT,0.0115
+random future,(!(((b W (!a)) U (!a)) U b)),,SAT,0.0018,SAT,0.0054,SAT,0.0063
+random future,((!b) W ((!c) U (X (X (X a))))),,SAT,0.0026,SAT,0.5636,SAT,0.0108
+random future,(b W ((!(b U b)) W (a U a))),,SAT,0.0020,SAT,2.7330,SAT,0.0173
+random future,((a U b) W ((!(X (!b))) U b)),,SAT,0.0018,SAT,0.0138,SAT,0.0072
+random future,(X (X ((b W (X (X b))) W (!c)))),,SAT,0.0026,SAT,0.1831,SAT,0.0084
+random future,((X (X (!((c W b) U b)))) W b),,SAT,0.0020,SAT,0.0187,SAT,0.0066
+random future,(!(((X b) W (b W (!c))) W c)),,UNSAT,0.0017,UNSAT,0.0018,UNSAT,0.0059
+random future,((X (X (a U a))) W (X (!(X a)))),,SAT,0.0033,SAT,0.0028,SAT,0.0062
+random future,((!(X b)) W ((c U (X b)) W a)),,SAT,0.0021,SAT,3.7743,SAT,0.0184
+random future,(((!(!a)) W (!(X a))) W (X b)),,SAT,0.0021,SAT,0.0900,SAT,0.0086
+random future,(c U (X ((c U a) U (a U c)))),,SAT,0.0032,SAT,0.1888,SAT,0.0120
+random future,(!((X (c W a)) W (X (c U c)))),,UNSAT,0.0033,UNSAT,0.0057,UNSAT,0.0111
+random future,(X (!(!(X ((!(X c)) W (X c)))))),,SAT,0.0032,SAT,0.0027,SAT,0.0115
+random future,((!(a U ((X a) W (!b)))) W a),,SAT,0.0023,SAT,0.0593,SAT,0.0086
+random future,(X (((!a) W a) U ((X b) W c))),,SAT,0.0019,SAT,0.0093,SAT,0.0064
+random future,((!(((a U c) W c) W c)) W c),,SAT,0.0019,SAT,0.0242,SAT,0.0073
+random future,(b W (X (((a U c) W a) W c))),,SAT,0.0020,SAT,20.3545,SAT,0.0203
+random future,(!(X (!((X b) W (c U (!b)))))),,SAT,0.0019,SAT,0.0046,SAT,0.0075
+random future,(((X c) U (X (c U a))) W (X c)),,SAT,0.0021,SAT,0.0148,SAT,0.0072
+random future,((X ((c U b) U b)) W (!(X a))),,SAT,0.0021,SAT,0.0270,SAT,0.0074
+random future,((!b) U (((X c) U a) U (!c))),,SAT,0.0032,SAT,0.0083,SAT,0.0112
+random future,(X (((c W (X b)) W ((!c) W (X c))) U (!(!b)))),,SAT,0.0062,TIMEOUT,,SAT,0.0851
+random future,((!(X (X c))) W (!(!(((!(!a)) U a) U (X b))))),,SAT,0.0023,SAT,65.6181,SAT,0.0222
+random future,((X ((X b) W ((X b) U (c U (a W (X a)))))) U b),,SAT,0.0030,TIMEOUT,,SAT,0.1829
+random future,(((!(!(!(X c)))) U a) U (X ((X c) U (c W b)))),,SAT,0.0021,SAT,11.9988,SAT,0.0083
+random future,(!(((a U b) U ((X c) U (!a))) W (c U (X c)))),,SAT,0.0024,SAT,0.4610,SAT,0.0094
+random future,(!(!(X ((a U a) U (!((b U (c U a)) W c)))))),,SAT,0.0020,SAT,0.0308,SAT,0.0074
+random future,((!((!(X c)) W (!(!a)))) U (b U (X (!(X a))))),,SAT,0.0038,SAT,1.2144,SAT,0.0123
+random future,(X ((((X c) U ((b U c) W a)) W (X (!a))) W b)),,SAT,0.0060,TIMEOUT,,SAT,0.3025
+random future,(((X (!b)) U a) U (!(X ((c U (!(!c))) W c)))),,SAT,0.0035,SAT,13.4017,SAT,0.0143
+random future,(!(((!(!b)) U (b U ((X c) W c))) U (b W b))),,SAT,0.0027,SAT,6.6930,SAT,0.0108
+random future,(((c W a) W (X (c W (a U a)))) U (X (b W b))),,SAT,0.0040,TIMEOUT,,SAT,0.1132
+random future,(!((!(!(X (((!b) U (c U c)) W c)))) U (!b))),,SAT,0.0018,SAT,35.5848,SAT,0.0080
+random future,(((X b) U (X c)) U (X (!((X (!(!(!c)))) W b)))),,SAT,0.0037,SAT,0.0125,SAT,0.0134
+random future,(X ((a W b) W (a W (X (!(!((b U c) U a))))))),,SAT,0.0031,TIMEOUT,,SAT,0.1184
+random future,((X ((X a) U (X (a W ((X c) W (b U b)))))) W c),,SAT,0.0058,TIMEOUT,,SAT,6.3338
+random future,(!(!(((!(b U b)) U b) W (c U (X (a W a)))))),,SAT,0.0023,SAT,20.4961,SAT,0.0144
+random future,((b U (X (!a))) U (((X b) W b) W (b W (!c)))),,SAT,0.0030,TIMEOUT,,SAT,0.0518
+random future,((X b) W (c W (b U (c W (b W ((X a) U c)))))),,SAT,0.0067,ERROR,60.1483,ERROR,4.4183
+random future,(!(((X b) U a) W ((X (b W c)) U ((!b) W c)))),,SAT,0.0048,SAT,13.5410,SAT,0.0233
+random future,(X (!(X (!(b U (X ((!c) U (!(X (c W a)))))))))),,SAT,0.0033,SAT,0.0531,SAT,0.0116
+random future,(((c U a) W ((X b) W (!a))) W (!((X a) U c))),,SAT,0.0032,TIMEOUT,,SAT,0.1570
+random future,((!(((!b) W a) W (b U a))) U (!(c U (X c)))),,SAT,0.0037,SAT,33.4079,SAT,0.0148
+random future,(((((!a) W (X c)) W (!(c U b))) W (!c)) W b),,SAT,0.0102,TIMEOUT,,SAT,0.3831
+random future,(b W ((((!a) U (X b)) U a) U ((!(X b)) U c))),,SAT,0.0027,SAT,56.4850,SAT,0.0390
+random future,((a U (!a)) U ((!(!b)) U ((X (!(!a))) W a))),,SAT,0.0037,SAT,0.1667,SAT,0.0082
+random future,((a W (!(b U (X b)))) U ((X c) W (a U (!b)))),,SAT,0.0026,TIMEOUT,,SAT,0.0500
+random future,(X (!(a W (((!a) U (c U c)) W (!(a U c)))))),,SAT,0.0038,SAT,40.0283,SAT,0.0153
+random future,(a W (((!a) W c) W (!(!(((X c) U c) U a))))),,SAT,0.0023,TIMEOUT,,SAT,0.4462
+random future,(X ((b W c) W ((((X c) W (X b)) U c) U (!b)))),,SAT,0.0024,SAT,56.9847,SAT,0.0293
+random future,(!(((X (a W c)) U ((X b) W (X (a U b)))) U c)),,SAT,0.0021,SAT,5.4628,SAT,0.0089
+random future,(((c W c) U (X ((!b) U c))) U (X (!(!(!b))))),,SAT,0.0036,SAT,0.8890,SAT,0.0101
+random future,(X (!(!(!((X ((!(X (X a))) U c)) W (c W a)))))),,UNSAT,0.0020,UNSAT,0.0325,UNSAT,0.0070
+random future,(!((X (((X a) W b) W b)) W (!(X ((!b) W a))))),,SAT,0.0020,SAT,1.3529,SAT,0.0073
+random future,((!(!(!(X (X a))))) W (X (X (!(X (!(a U b))))))),,SAT,0.0018,SAT,0.0052,SAT,0.0062
+random future,(!(c U (((!b) U a) U (X (b W (a W (!c))))))),,SAT,0.0046,SAT,0.1081,SAT,0.0118
+random future,(!(X (!((!a) W (b U ((c U b) W (!(!b)))))))),,SAT,0.0018,SAT,7.1780,SAT,0.0174
+random future,(X (X (((!c) U c) W (((!(!b)) U (!b)) W b)))),,SAT,0.0023,SAT,0.4722,SAT,0.0105
+random future,(!((!(!(a U b))) W ((X b) U (a W (b U c))))),,UNSAT,0.0047,UNSAT,46.5941,UNSAT,0.0196
+random future,((X (X (c U a))) U (!((X (X c)) U ((X c) U c)))),,SAT,0.0020,SAT,0.1573,SAT,0.0072
+random future,(((!((X (!(b U a))) U b)) U ((!c) U c)) U c),,SAT,0.0026,SAT,0.6329,SAT,0.0152
+random future,(((((X b) U a) U b) U ((X (X a)) W c)) U (X c)),,SAT,0.0088,TIMEOUT,,SAT,0.9342
+random future,(b W ((((X c) W (X (c W a))) U (c U c)) W b)),,SAT,0.0042,TIMEOUT,,SAT,1.8523
+random future,((c U (X a)) U (!(c W (((c U b) U b) W a)))),,SAT,0.0031,SAT,66.8581,SAT,0.0133
+random future,((b U a) W (X ((X a) U ((a U a) W (!(!a)))))),,SAT,0.0022,SAT,26.1585,SAT,0.0315
+random future,(!(((!c) U b) U ((b U a) W (X ((X b) U c))))),,SAT,0.0042,SAT,0.6400,SAT,0.0123
+random future,((a U a) W (!((!(X (!a))) U ((X c) U (X b))))),,SAT,0.0019,SAT,0.1887,SAT,0.0090
+random future,(((c U c) U c) U (((!(!(c U b))) W b) W b)),,SAT,0.0043,TIMEOUT,,SAT,0.0302
+random future,(X (((X b) U ((!b) U ((!a) U (!b)))) W (!b))),,SAT,0.0020,SAT,32.4681,SAT,0.0093
+random future,((X (c W b)) W (((!c) W (!(!(X c)))) U (!b))),,SAT,0.0026,SAT,13.3999,SAT,0.0217
+random future,((c U ((c U (!a)) W (X a))) U (c U (X (X a)))),,SAT,0.0060,TIMEOUT,,SAT,0.0572
+random future,((c W a) W (!(!(X ((X c) U (!(!(a U a)))))))),,SAT,0.0022,SAT,13.3099,SAT,0.0185
+random future,((!a) U (X (((a W b) U (X ((X b) U b))) U b))),,SAT,0.0038,SAT,49.5199,SAT,0.0144
+random future,(!((!((b W c) U c)) U (b W ((!(!a)) W b)))),,SAT,0.0024,SAT,5.3835,SAT,0.0130
+random future,(X (!(!((X ((X b) U (b U (b W b)))) U (X b))))),,SAT,0.0018,SAT,0.2726,SAT,0.0089
+random future,((!(X (!(b W (c W b))))) U ((X (!a)) U (!b))),,SAT,0.0022,SAT,1.2722,SAT,0.0081
+random future,(X ((a U (X ((b U (X c)) U b))) W (X (b W a)))),,SAT,0.0050,TIMEOUT,,SAT,0.1052
+random future,((!(!((X (X b)) W (b W (!b))))) W ((!a) W b)),,UNSAT,0.0032,SAT,9.6527,SAT,0.0146
+random future,(((!((a U b) W b)) W (X c)) U (a U (c U b))),,SAT,0.0049,TIMEOUT,,SAT,0.0400
+random future,(X (X (X ((X c) W ((b U a) U ((!b) W (X c))))))),,SAT,0.0026,TIMEOUT,,SAT,0.0290
+random future,(((c W c) U c) W ((X (a U a)) U ((X b) W c))),,SAT,0.0021,TIMEOUT,,SAT,0.4313
+random future,(X ((X c) W (((X c) U (a U (X (a U b)))) U a))),,SAT,0.0025,TIMEOUT,,SAT,0.1750
+random future,((a W (!b)) U (X (!((X (c W (X c))) U (!c))))),,SAT,0.0022,SAT,28.3694,SAT,0.0085
+random future,(a U ((X (!(!((!a) U a)))) U (a U (c U b)))),,SAT,0.0034,SAT,1.0053,SAT,0.0127
+random future,(!(!((X (X ((b U (c W b)) U (b U c)))) W b))),,SAT,0.0028,TIMEOUT,,SAT,0.1796
+random future,((!((X b) W ((b W (X c)) W (!b)))) U (!(X b))),,SAT,0.0036,SAT,35.0851,SAT,0.0152
+random future,(X (!(!(((X b) U ((X b) W a)) U (!(a U c)))))),,SAT,0.0023,SAT,1.7606,SAT,0.0105
+random future,((c W (X ((X ((X a) U (X c))) W a))) W (c U b)),,SAT,0.0086,TIMEOUT,,SAT,0.4763
+random future,(((!(((X b) W (X b)) W (!b))) W (X (X b))) W a),,SAT,0.0039,SAT,47.0216,SAT,0.0170
+random future,(X (((X ((c W c) U (X c))) W (!(!a))) W (!c))),,SAT,0.0031,SAT,1.2622,SAT,0.0136
+random future,(b W (X (X (!(!(X ((!(!(c W c))) U (X a)))))))),,SAT,0.0137,SAT,11.5490,SAT,0.0260
+random future,((X (X (b U (X (X c))))) W ((X b) U ((X a) U b))),,SAT,0.0061,TIMEOUT,,SAT,0.3272
+random future,((X a) W ((((X a) U (c U a)) W (X a)) W (!b))),,SAT,0.0034,TIMEOUT,,SAT,0.7813
+random future,((((!(X c)) U a) W (b U (!a))) U (!(X (X b)))),,SAT,0.0035,TIMEOUT,,SAT,0.0202
+random future,(((X b) W (!(b U a))) W (X (((!c) U b) W a))),,SAT,0.0034,SAT,78.5950,SAT,0.0677
+random future,((X ((!b) U (X b))) U (!(a U (X ((!c) U a))))),,SAT,0.0023,SAT,0.2904,SAT,0.0084
+random future,(!((X ((X (X (!c))) W (((X a) U b) U c))) U a)),,SAT,0.0023,SAT,5.1309,SAT,0.0098
+random future,(X (X ((X (X (!((!c) U ((!a) U (!c)))))) W b))),,SAT,0.0022,SAT,0.2803,SAT,0.0088
+random future,(a W (X ((!(b W (!b))) W (!(!(!(c U a))))))),,SAT,0.0020,SAT,0.0100,SAT,0.0069
+random future,((((c U b) W (X c)) U (!(!a))) U (b W (!c))),,SAT,0.0081,TIMEOUT,,SAT,0.0451
+random future,((((a W (X a)) U (c W a)) W (!c)) W (a W b)),,SAT,0.0139,TIMEOUT,,SAT,4.7222
+random future,((!(X (a W (X (b W (a W c)))))) U ((!b) U c)),,SAT,0.0055,SAT,38.7922,SAT,0.0157
+random future,(!(X (!((((!b) U (X a)) W (c U a)) W (X c))))),,SAT,0.0036,SAT,103.1391,SAT,0.0542
+random future,((!((!((!(a W b)) W b)) W (X b))) W (X (X a))),,SAT,0.0066,SAT,1.8302,SAT,0.0229
+random future,(X (c U ((X (X b)) W ((X b) W (b W (b W c)))))),,SAT,0.0039,ERROR,32.0177,ERROR,9.5424
+random future,((X (X ((X b) W (a U (X c))))) W (c U (b U c))),,SAT,0.0065,ERROR,0.0465,SAT,1.5015
+random future,((!(X (a W (X (X ((c W c) U (b U a))))))) U a),,SAT,0.0038,SAT,2.1092,SAT,0.0097
+random future,(!(X (X (X (b W ((a W (c U a)) U (c W c))))))),,SAT,0.0032,TIMEOUT,,SAT,0.0144
+random future,(X ((X (b U c)) W (X (X (!(b U (!(X (X c))))))))),,SAT,0.0030,SAT,42.0906,SAT,0.0118
+random future,((!(c W a)) U (X ((X (b W c)) U ((!a) U b)))),,SAT,0.0024,SAT,15.2230,SAT,0.0086
+random future,((X (!a)) W ((X b) U (((X b) W a) U (!(X a))))),,SAT,0.0023,TIMEOUT,,SAT,0.0341
+random future,((b U (a U (X b))) U ((!(!(X (!a)))) W (!b))),,SAT,0.0023,SAT,15.6752,SAT,0.0103
+random future,((!((!(c U (X a))) W c)) W ((!a) W (a W b))),,SAT,0.0026,TIMEOUT,,SAT,0.1836
+random future,((b U c) U (a U (b W ((b U a) U (!(X b)))))),,SAT,0.0027,TIMEOUT,,SAT,0.0191
+random future,(((!(!(X (X (X b))))) U (X (!(!b)))) W (c U a)),,SAT,0.0022,SAT,10.2049,SAT,0.0165
+random future,((!(X (X (X c)))) W (!(!((!a) W (!(a W b)))))),,SAT,0.0033,TIMEOUT,,SAT,0.0539
+random future,(((X b) W (X b)) W (((X b) W (c U a)) W (X a))),,SAT,0.0034,TIMEOUT,,SAT,3.0001
+random future,(X (b U (!(X (X (((a U (!a)) W (!c)) W c)))))),,UNSAT,0.0020,UNSAT,11.8761,UNSAT,0.0059
+random future,((a U (X c)) W (X ((X (!a)) W ((!a) W (!c))))),,SAT,0.0029,SAT,23.7875,SAT,0.0278
+random future,(X (!(!(((!a) W (X (X (c W a)))) W (a W a))))),,SAT,0.0029,SAT,3.6812,SAT,0.0152
+random future,(X ((b U a) W ((!(a U c)) U (!((!c) U c))))),,SAT,0.0020,SAT,0.8351,SAT,0.0114
+random future,((!b) W (((!b) W a) W (c U ((c U (!b)) U (!(X (b U a))))))),,SAT,0.0043,TIMEOUT,,SAT,18.4578
+random future,(X (((b W c) U ((!c) W c)) W (!((X ((X a) U c)) W (a U b))))),,SAT,0.0034,TIMEOUT,,SAT,0.0934
+random future,(((!(!(X (b U (X (b U (X c))))))) W c) U ((X (a W a)) U (X a))),,SAT,0.0080,TIMEOUT,,SAT,0.1087
+random future,(((c W ((!c) U a)) U b) W (((a U b) W b) W (X (X (c U b))))),,SAT,0.6817,TIMEOUT,,TIMEOUT,
+random future,(X (X (X (b U ((!c) U (((!c) U (X a)) W (((!c) U c) W c))))))),,SAT,0.0029,TIMEOUT,,SAT,57.3913
+random future,(((!(!(c W (!c)))) U (X (!(X (X a))))) U (a W (X (a W (!c))))),,SAT,0.0072,TIMEOUT,,SAT,0.0427
+random future,((a U (!c)) W (!(((a U a) W c) U (X (X ((c U a) U (!b))))))),,SAT,0.0178,TIMEOUT,,SAT,0.4241
+random future,(X (((c W (!a)) U (a W b)) U (b W (((X a) U c) W (c W c))))),,SAT,0.0131,TIMEOUT,,SAT,6.6864
+random future,((c U ((!b) W b)) U ((((X a) U (!a)) U (c U a)) U (c U c))),,SAT,0.0030,TIMEOUT,,SAT,0.0245
+random future,(b U (b U (X (((!c) U b) U ((X (!c)) U (b U ((X a) U c))))))),,SAT,0.0030,TIMEOUT,,SAT,0.0087
+random future,(((X (a U a)) U (!b)) U ((((X c) U (!c)) W (a W c)) U (X b))),,SAT,0.0062,TIMEOUT,,SAT,0.1043
+random future,(!(X (X ((c W (!a)) W (!((a U ((c W b) W (!(!c)))) W b)))))),,SAT,0.0048,TIMEOUT,,SAT,0.4953
+random future,(!((X ((X (X ((X b) U (b W c)))) W ((X a) W b))) W (b U (!a)))),,SAT,0.0042,TIMEOUT,,SAT,0.0093
+random future,(((a W a) U (!(X (!(b W a))))) W ((!((X (!b)) U a)) W (X c))),,SAT,0.0052,TIMEOUT,,SAT,0.1623
+random future,((X (c W a)) W (((!c) U (X (c W b))) W (!(b U (!(a W a)))))),,SAT,0.0072,TIMEOUT,,SAT,11.8148
+random future,(X ((X ((!(X (a U a))) U ((!c) W a))) U (!((!(!a)) U (!c))))),,SAT,0.0017,SAT,21.9281,SAT,0.0051
+random future,((b W (!((!a) U (c U a)))) W ((b W c) W (!((X (X b)) W c)))),,SAT,0.0136,TIMEOUT,,SAT,1.3285
+random future,((((!(!((!a) W b))) U (!b)) W (!b)) W (!((b W c) U (!b)))),,SAT,0.0057,SAT,101.0310,SAT,0.0426
+random future,(b W (X (X ((!(X (X a))) W ((X ((!b) W (b U c))) W (c W c)))))),,SAT,0.1078,TIMEOUT,,SAT,16.1621
+random future,((c U (!(c W (X ((X b) U ((!c) W (X (b U c)))))))) U (c U c)),,SAT,0.0045,SAT,24.9958,SAT,0.0113
+random future,((((!a) U c) U ((a U (X b)) W (c W c))) U ((a U c) U (!c))),,SAT,0.0227,TIMEOUT,,SAT,0.9436
+random future,((c U (!((!c) U (c W (a U (X b)))))) W (X (b U (X (a W b))))),,SAT,0.0136,TIMEOUT,,SAT,0.1927
+random future,((!((X c) W b)) U ((X (a U (X c))) W (!(b W ((X (!c)) W b))))),,SAT,0.0054,TIMEOUT,,SAT,0.0749
+random future,(X (((!b) U (c U b)) W (((b W b) U ((X (c W a)) U c)) U a))),,SAT,0.0050,TIMEOUT,,SAT,5.0993
+random future,((((X (X b)) W (X ((!(c U c)) W (X c)))) U a) W (X (b W (X b)))),,SAT,0.1041,TIMEOUT,,SAT,0.9878
+random future,((a U (!b)) U ((((X c) U (b W (b U b))) W c) W (X (!(X a))))),,SAT,0.0210,TIMEOUT,,SAT,1.9109
+random future,(((b W (b U a)) W c) U (((!(b U a)) W (a U (!(X a)))) W a)),,SAT,0.0176,TIMEOUT,,SAT,0.8598
+random future,(!(((X ((c U (!(!c))) U (X (!(b W c))))) W (b U c)) U (X c))),,SAT,0.0019,SAT,64.4220,SAT,0.0063
+random future,(X (X (!((X (!((!((!(a U c)) U b)) W a))) U (b U (a U c)))))),,SAT,0.0026,SAT,4.6992,SAT,0.0123
+random future,((!(!(!(((X c) U (X b)) U (!c))))) W ((X (a U b)) U (c W c))),,SAT,0.0021,SAT,56.6202,SAT,0.0427
+random future,(X (!(X (X ((((!b) U (!c)) W (!((b U b) U c))) U (X (X a))))))),,SAT,0.0069,TIMEOUT,,SAT,0.0159
+random future,(!(X ((X (a W (a U a))) U (((!(c U (X c))) W b) U (c U b))))),,SAT,0.0134,TIMEOUT,,SAT,0.0844
+random future,((b W (!a)) U ((!(((X (!c)) U (X c)) U (!(!(X c))))) W (!b))),,SAT,0.0019,SAT,49.0354,SAT,0.0086
+random future,((((!b) U (b U c)) W c) W ((!(X (X (!c)))) W ((X (X c)) U c))),,SAT,0.0032,TIMEOUT,,SAT,0.9382
+random future,((!(a U b)) W ((X ((c U (X b)) W (X a))) W ((!(b U a)) U b))),,SAT,0.0163,TIMEOUT,,SAT,1.4834
+random future,(!(!(X (!(((X a) U (X c)) W (X (!((c W a) W (!(c U b)))))))))),,SAT,0.0026,TIMEOUT,,SAT,0.0191
+random future,((b U a) W ((c W (X (a W b))) W (!(X (c U (X (c U (!c)))))))),,SAT,0.0063,TIMEOUT,,SAT,1.7740
+random future,((X c) W ((((X c) U (!a)) W (X c)) U ((!(a U (a U c))) U c))),,SAT,0.0028,TIMEOUT,,SAT,0.1412
+random future,((!((X ((c U b) U (!(X c)))) W (!((X (X b)) U (b W c))))) W c),,SAT,0.0093,TIMEOUT,,SAT,0.1660
+random future,(X (!((((((!c) W (X c)) W (X b)) W a) U (a U (X b))) W (X a)))),,SAT,0.0027,TIMEOUT,,SAT,0.0073
+random future,(X (((((b W b) W (X b)) W c) W (!(c U c))) U (X ((!c) W c)))),,SAT,0.0259,TIMEOUT,,SAT,0.5082
+random future,(!((!(a U ((((X b) W (!a)) W (b W b)) U (a U a)))) W (X b))),,SAT,0.0040,TIMEOUT,,SAT,0.0281
+random future,(((X (X a)) W (!a)) W ((c U (a W a)) W (X ((!c) W (c U a))))),,SAT,0.0182,TIMEOUT,,SAT,2.4887
+random future,((c U ((X a) U (!a))) W ((b W b) W (((X (X c)) U (X c)) U b))),,SAT,0.0027,TIMEOUT,,SAT,1.2798
+random future,(X (((!c) W (((c U b) U a) U b)) W (X ((!b) U ((X c) U b))))),,SAT,0.0796,TIMEOUT,,SAT,4.6103
+random future,(X (X ((((b U (!(!b))) U c) U (X (X c))) W (X (b U (b U b)))))),,SAT,0.0082,TIMEOUT,,SAT,0.3334
+random future,(((c U (!c)) U (b W b)) W ((a U (X c)) W ((!(X b)) W (X a)))),,SAT,0.0341,TIMEOUT,,SAT,11.9038
+random future,((X (((X c) U b) W a)) U (!((c U a) W ((b U (X b)) U (!a))))),,UNSAT,0.0025,UNSAT,50.0340,UNSAT,0.0110
+random future,(!(!((((!a) U a) W b) U ((a U (X c)) U (!((X (!c)) W b)))))),,SAT,0.0049,SAT,87.6531,SAT,0.0185
+random future,((!(((X c) U b) U ((!((!a) W a)) W (X (X (X (b W b))))))) W b),,SAT,0.0050,TIMEOUT,,SAT,0.0211
+random future,(!(!((!((!c) W ((!b) U (X b)))) U ((X (X (!c))) W (a U c))))),,SAT,0.0029,SAT,43.5508,SAT,0.0157
+random future,((X ((X (b W (b W b))) W a)) W (c W ((!(b W c)) W (c W a)))),,SAT,0.0110,ERROR,60.7709,ERROR,
+random future,((a U (c U (!a))) U ((!(X (!(X (X (!b)))))) U (X (X (b U c))))),,SAT,0.0034,ERROR,0.0628,SAT,55.7176
+random future,((X (!((c U ((X b) U (X c))) W (a U (X c))))) U (c W (a W a))),,SAT,0.0069,TIMEOUT,,SAT,0.0892
+random future,((X ((b W b) U (b U ((a W c) W a)))) U (X (((X c) U c) W c))),,SAT,0.0074,TIMEOUT,,SAT,4.4341
+random future,(X (!((X (!((b W (a U b)) W c))) U (X (!(a U ((X a) W c))))))),,SAT,0.0046,TIMEOUT,,SAT,0.2471
+random future,(!((!(!((X a) W (a U c)))) U (c W (((!a) U a) W (X (!a)))))),,UNSAT,0.0019,UNSAT,7.4768,UNSAT,0.0063
+random future,((X (a U (!b))) W ((c U ((c W b) U (b W b))) W (a U (X a)))),,SAT,0.0182,TIMEOUT,,ERROR,33.4048
+random future,((!(a U ((((!c) U b) U ((X c) W c)) W ((!(!c)) U b)))) W b),,SAT,0.0175,TIMEOUT,,ERROR,0.0221
+random future,(X (((X ((X (!((c U a) U (!c)))) W (!c))) W c) W (X (c W a)))),,SAT,0.0025,SAT,105.3151,SAT,0.1589
+random future,(X (c U ((b W (X a)) W (!(X ((!b) W ((b W (!c)) U (!a)))))))),,SAT,0.0084,TIMEOUT,,SAT,0.1550
+random future,(X (X ((((!c) W b) W ((c U (!a)) W c)) W ((!(!(!a))) U b)))),,SAT,0.0048,TIMEOUT,,SAT,1.8474
+random future,((((!c) U (X a)) W ((b W b) U c)) U ((a W c) U (b W (X a)))),,SAT,0.0408,TIMEOUT,,SAT,2.4005
+random future,(X (X (!(((!(X (X ((b W ((!c) U b)) W (X b))))) U (X c)) U b)))),,SAT,0.0021,SAT,80.7124,SAT,0.0101
+random future,(!((X ((b U (X a)) U (!((a W (a U a)) W (!b))))) U (X (X a)))),,SAT,0.0026,TIMEOUT,,SAT,0.0249
+random future,(!((b U ((X (a U b)) W b)) U ((!b) U ((!b) U (a W (!a)))))),,UNSAT,0.0014,UNSAT,9.1922,UNSAT,0.0070
+random future,((b W a) U (!(b U (((X c) U (!(X a))) W (b W ((!a) U c)))))),,SAT,0.0205,TIMEOUT,,SAT,0.1193
+random future,(!(((X (!(!(!c)))) U (a U c)) U ((X (!((c W b) W a))) U c))),,SAT,0.0042,TIMEOUT,,SAT,0.0266
+random future,(X (((!(X b)) U b) U (a U ((c W (!((a U a) W (X b)))) U c)))),,SAT,0.0045,TIMEOUT,,SAT,0.0342
+random future,((!((!((X (a U (!b))) W a)) U b)) W (!((b W (c U b)) W b))),,SAT,0.0080,TIMEOUT,,SAT,4.0987
+random future,(X ((X b) W ((b W b) W (X (!((!((a W a) W (X a))) U (!c))))))),,SAT,0.0230,TIMEOUT,,SAT,1.5325
+random future,((!(((X (X b)) W (X (a W (X b)))) U a)) U (!(((X a) W a) U b))),,SAT,0.0053,TIMEOUT,,SAT,0.0201
+random future,(X (X (((X a) U (!((a W c) U (b U (!(X (!b))))))) W (c U a)))),,SAT,0.0059,TIMEOUT,,SAT,0.0529
+random future,(((((!a) W (!c)) U (X c)) U c) U (!(X ((!b) W (a U (!c)))))),,UNSAT,0.0050,TIMEOUT,,UNSAT,0.0243
+random future,(!((X ((b W (!a)) W (X b))) U (X (a W ((X ((X a) W b)) W b))))),,UNSAT,0.0154,TIMEOUT,,UNSAT,0.0368
+random future,(!(X (!(c W (X (X (X ((((X c) W a) U ((!a) U (X b))) U c)))))))),,SAT,0.5125,TIMEOUT,,SAT,6.3822
+random future,(((!(X a)) W (a U ((c W c) W ((!b) W c)))) W (!((X c) U b))),,SAT,0.0088,ERROR,79.4252,ERROR,6.4969
+random future,(((X a) U a) W ((X c) U (((c U c) U (c U b)) U (!(b U c))))),,SAT,0.0023,ERROR,0.0552,SAT,0.3148
+random future,(((!((!(c W a)) W (b W (X b)))) W (a U a)) U (c W (!(X a)))),,SAT,0.0452,TIMEOUT,,SAT,1.6127
+random future,(X (((!b) U (!(!(b U b)))) U ((X ((!(!b)) U (X (X c)))) W c))),,SAT,0.0050,SAT,117.6146,SAT,0.0291
+random future,(!((!((c W (!b)) U (!(!(X a))))) U ((c W (!c)) W (b W c)))),,UNSAT,0.0017,UNSAT,0.0049,UNSAT,0.0067
+random future,(X (((!c) U (X (X ((!(b U a)) U (a U a))))) W (!(X (c W b))))),,SAT,0.0172,SAT,48.2494,SAT,0.0836
+random future,(a U (X ((X c) U (!(!(c W (X (X (X (X (c W ((X b) W b)))))))))))),,SAT,0.0170,TIMEOUT,,SAT,0.0970
+random future,((X (!((!(!a)) W b))) W (X ((a W c) W (X (!((b W c) U c)))))),,SAT,0.0059,TIMEOUT,,SAT,0.1090
+random future,(!(X (!(!(a U (!((b U (b U b)) U ((b W c) W (a U c))))))))),,SAT,0.0169,TIMEOUT,,SAT,1.7375
+random future,((X ((b U (!(!(X c)))) U ((!c) W (a W b)))) W (X (!(!(!b))))),,SAT,0.0030,TIMEOUT,,SAT,0.4351
+random future,((((c W b) W b) W ((a U c) U (X b))) U (X (X (c U (a W b))))),,SAT,0.0479,TIMEOUT,,SAT,11.8023
+random future,(X (X (((X (X (c W (!c)))) W (!c)) U (!(((!c) U c) W (!a)))))),,SAT,0.0018,SAT,25.9428,SAT,0.0099
+random future,((X (!((c W (b U (X c))) U b))) U (((X a) W (!a)) W (a W b))),,SAT,0.0137,TIMEOUT,,SAT,0.1588
+random future,(!((X (c U (X (X ((a W a) W (((!c) U (X b)) W (X b))))))) U a)),,SAT,0.0073,TIMEOUT,,SAT,0.0261
+random future,(((b U ((c U b) W c)) U a) W ((a W b) U (!((a U b) U a)))),,SAT,0.0644,TIMEOUT,,SAT,9.3350
+random future,((X a) U (X ((((!(c W (!a))) W (b W (X a))) W (a W b)) W a))),,SAT,0.0110,TIMEOUT,,ERROR,19.5575
+random future,((!(!((a W a) W a))) U ((b U (c W (!c))) W (!((X c) W b)))),,SAT,0.0032,TIMEOUT,,ERROR,0.0148
+random future,((X (X ((!a) U ((!a) U (c U a))))) W ((X a) U ((!(X a)) U c))),,SAT,0.0028,TIMEOUT,,SAT,0.1496
+random future,((!((b U c) W (a W b))) U ((X ((!c) W ((b U a) W b))) U a)),,SAT,0.0084,TIMEOUT,,SAT,0.0545
+random future,((X b) W (((X c) U (X (!(X ((!c) W c))))) U ((X b) W (a U c)))),,SAT,0.0019,TIMEOUT,,SAT,0.1732
+random future,(((!(a U (!(!c)))) U (!(X (X ((X (!c)) W (a U b)))))) U (X b)),,SAT,0.0076,TIMEOUT,,SAT,0.0200
+random future,(((X b) W c) U (((X c) U (!c)) U (!((!a) U ((a U c) W c))))),,SAT,0.0025,TIMEOUT,,SAT,0.0120
+random future,(X ((!((!(X (!(c W b)))) W (!(X ((X (!b)) U a))))) W (c W c))),,SAT,0.0059,SAT,90.9038,SAT,0.0275
+random future,((X ((X (X ((b U a) U (X c)))) W (X (!(!(X (!c))))))) U (X (!b))),,SAT,0.0035,SAT,6.6593,SAT,0.0151
