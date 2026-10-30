@@ -1,0 +1,61 @@
+❯ Is there a way to make the BGA generation faster? I'm looking for Java/data structures optimizations
+
+  Ran 5 shell commands
+
+Reading the GBA construction code (FormulaGraphFactory, Node, Atom) before profiling where time goes.
+
+  Ran 2 shell commands
+
+Yes, there are several. I read GeneralizedBuchiAutomata, FormulaGraphFactory, Node, Atom and the interning in FormulaFactory, but I haven't profiled anything yet. The order below is my estimate of how much each would help.
+
+1. Debug printing runs on every build
+
+GeneralizedBuchiAutomata.translate() always calls printNodes(new StandardOutput()). That turns every node, atom and transition into strings and writes them out. On large automata this alone can take a big share of the time. Put it behind a debug flag.
+
+2. FormulaFactory.unique() builds a key with toString()
+
+String s = f.toString();
+if (subf.containsKey(s)) ...
+Every makeNot, makeNext, makePrev and makeRelease turns the whole formula tree into a string just to look it up. Several of these calls sit in hot paths:
+- isContradiction calls makeNot(f) for every formula added in splitAtomToCoverSet.
+- specialCaseV calls makeRelease(False, f) on every Atom.add redundancy check.
+- getPreconditions calls makeNext(formula).
+- LabelFactory.makeLabel calls fac.makeNot(f) for every proposition on every transition.
+
+Fixes:
+- Intern by structure, with a key of (kind, sub1.id, sub2.id) or the proposition name. That costs O(1) instead of O(size of formula).
+- Also, or instead, cache derived formulas directly on the Formula in fields like negation and nextOf.
+
+3. correctGraph rescans every edge on every round
+
+getUnsatisfactoryEdges() walks all nodes and all edges in both directions and re-runs isSatisfactoryTowards each round. Once an atom is in the graph it doesn't change, so whether an edge is satisfactory is fixed when the edge is created. Use a worklist instead: in addEdge, if the new edge isn't satisfactory, push it onto a queue, then process the queue until it's empty. Total work drops from O(rounds × E) to O(E).
+
+4. Store Atom as a BitSet of formula ids
+
+Formula ids are dense integers from newId(), so a BitSet fits well. Right now Atom is a TreeSet<Formula>:
+- contains costs O(log n).
+- hashCode() is recomputed in O(n) on every HashMap operation in nodes, because nothing caches it.
+- Copies, including the two TreeSet copies in every SplitKey, allocate a tree n
+                                                                                                                                                                            With a BitSet, contains, equals, hashCode and clone all become cheap word operawo BitSets. You could also compute two more BitSets once per atom: the ids itsX-formulas require of the next state, and the ids its Y/Ỹ-formulas require of talready split. Then isSatisfactoryTowards is just a subset test(req.andNot(neighbour.members) is empty) instead of a loop of instanceof checks The same applies to getNextSet/getPrevSet, which correctEdge currently rebuilds
+every time.
+
+5. Leaner per-node data structures in Node
+
+- Replace HashMap<Direction, TreeSet<Node>> with an array indexed by direction.ordinal() (or at least an EnumMap).
+- Store forbiddenConnections as a BitSet over node ids. They are only checked w
+- addEdge makes a fresh new TreeSet<>(clones.get(direction)) twice per call, recursively, even though most clone sets are empty. Skip the copy when the set is empty, or take an
+  ArrayList/toArray snapshot. The new TreeSet<>(…connections…) copies in correc
+- connections could be ArrayList plus a BitSet for membership, so you get fast
+
+6. Transition construction (Node.makeTransitions / Gmake)
+
+- getPresentPropositions() builds a new TreeSet for every predecessor, but the result depends only on this. Compute it once before the loop.
+- isSafetyAcc() calls getNextSet() again; it could reuse the precomputed set fr
+- All transitions into a node share the same propositions, so lf.makeLabel(...) produces the same string for each of them. Compute the label once per node instead of once per edge.
+
+Possible correctness problem in the memoization
+
+SplitKey assumes an atom's acceptance bits follow from its formulas alone. But lls atom.acceptBasedOn(And) without adding the And to formulas. So two calls with
+the same formulas and increment set but different rightOfUntils could share a cith the wrong acceptance bits. I haven't confirmed that this actually happens. A
+quick check: put accepting/rightOfUntils into the key and see whether any of thhaving differently.
+What I'd do first: items 1–3. Each is small and local and probably gives most obiggest refactor, and the change to Atom reaches FormulaGraphFactory, Node andLabelFactory. I can implement these one at a time and time each against your LTwhat each one gains.

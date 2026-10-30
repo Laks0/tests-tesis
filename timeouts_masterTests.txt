@@ -1,0 +1,5 @@
+2	45	0.95	11	(((X a) W ((a U b) W (a W ((b W b) U ((X b) U (b U b)))))) U (((((X a) U a) U ((X b) W (X a))) W ((a W a) W (((X b) U a) W a))) W (a W a)))
+3	40	0.5	62	((X (((c W a) U a) W ((a U a) U (X b)))) W (((((X (X c)) U a) U ((X c) U a)) U (X (!(X c)))) W ((X b) W (b W ((c W b) U b)))))
+3	40	0.95	32	(!((c W ((b W (c W b)) U (((!c) W b) U (X c)))) U ((((c W (a U (b W (a U c)))) U a) W (c W (X b))) W (b U (a U (X a))))))
+3	40	0.95	79	(((c U a) U a) U (((((((!c) W (a U a)) U (X a)) U a) W (X c)) W (b U (X a))) W ((((a W b) U (b U c)) U (X b)) W (b W c))))
+3	45	0.7	44	(((((!a) W b) W c) U ((a W b) W (!a))) U ((!(X (X (c W (X a))))) U (!(((a W (b U (X c))) W (!b)) U (((X b) U c) U (((X c) U (!c)) U c))))))
